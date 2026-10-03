@@ -6,8 +6,54 @@
   },
   "cells": [
     {
-      "id": "setup",
-      "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
+      "id": "Hbol",
+      "code_hash": "1f9845eb9b8d278a61b86730cdac835a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"tp1\">TP1</h1>\n<h2 id=\"grupo\">Grupo</h2>\n<span class=\"paragraph\">Jo\u00e3o Pontes, A111657</span>\n<span class=\"paragraph\">Jo\u00e3o Paulo, A110393</span>\n<span class=\"paragraph\">Objetivo: Criar um hor\u00e1rio escolar semanal cumpridor de determinadas restri\u00e7\u00f5es (consultar horario_escolar_enunciado.py).</span>\n<hr />\n<span class=\"paragraph\">Para a leitura dos dados .csv:</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "33b2a638a8d069fc0e400dc8b568ec04",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "300\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "LmZS",
+      "code_hash": "68cfe6c6fa3e15f03c2c28054c6dae7b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R1)</strong> Uma turma n\u00e3o pode ter duas aulas em simult\u00e2neo, pelo que:</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "sqRh",
+      "code_hash": "cedfe3544b5c8ddb536280dc6e7854ef",
       "outputs": [
         {
           "type": "data",
@@ -17,6 +63,104 @@
         }
       ],
       "console": []
+    },
+    {
+      "id": "QKCn",
+      "code_hash": "a4e15d233f76387c13dcceb2dd36d2f3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R2)</strong> Cada disciplina cumpre <em>exatamente</em> a carga semanal</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DGqe",
+      "code_hash": "ab92ac1cdfac3d12b6c2f66fd547c692",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "HdQv",
+      "code_hash": "bd5808187296bdb2f7a81764c842e46a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R3)</strong> No m\u00e1ximo uma aula da mesma disciplina por dia, por\nturma \u2014 exceto disciplinas de duplo per\u00edodo (ver R4), em que o\nbloco de 2 tempos conta como uma s\u00f3 ocorr\u00eancia nesse dia.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "JqTp",
+      "code_hash": "d1133ccabd5157daec9d4f4d4ddc6db2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RIwJ",
+      "code_hash": "eef13d98361f6eb73ecd6f5bdce2bee9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R4)</strong> Disciplinas marcadas <code>duplo_periodo=sim</code> s\u00f3 podem ser\n  dadas em blocos de 2 tempos consecutivos, no mesmo dia (nunca um\n  tempo isolado).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "FZgd",
+      "code_hash": "344d9ffc67458535602ab7a83bc91e92",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "FWpb",
+      "code_hash": "465671d0b5f05ce4bfca1cc5a456c3af",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "OPTIMAL\n{('7\u00baA', 'Qua', 4): 'Matem\u00e1tica', ('7\u00baA', 'Qua', 5): 'Matem\u00e1tica', ('7\u00baA', 'Qui', 1): 'Matem\u00e1tica', ('7\u00baA', 'Qui', 2): 'Matem\u00e1tica', ('7\u00baA', 'Ter', 5): 'Portugu\u00eas', ('7\u00baA', 'Qua', 1): 'Portugu\u00eas', ('7\u00baA', 'Qua', 2): 'Portugu\u00eas', ('7\u00baA', 'Qua', 3): 'Portugu\u00eas', ('7\u00baA', 'Ter', 2): 'Ci\u00eancias', ('7\u00baA', 'Ter', 3): 'Ci\u00eancias', ('7\u00baA', 'Ter', 4): 'Ci\u00eancias', ('7\u00baA', 'Seg', 1): 'Hist\u00f3ria', ('7\u00baA', 'Seg', 2): 'Hist\u00f3ria', ('7\u00baA', 'Seg', 5): 'Ingl\u00eas', ('7\u00baA', 'Ter', 1): 'Ingl\u00eas', ('7\u00baA', 'Seg', 3): 'Educa\u00e7\u00e3o F\u00edsica', ('7\u00baA', 'Seg', 4): 'Educa\u00e7\u00e3o F\u00edsica', ('7\u00baB', 'Qua', 4): 'Matem\u00e1tica', ('7\u00baB', 'Qua', 5): 'Matem\u00e1tica', ('7\u00baB', 'Qui', 1): 'Matem\u00e1tica', ('7\u00baB', 'Qui', 2): 'Matem\u00e1tica', ('7\u00baB', 'Ter', 5): 'Portugu\u00eas', ('7\u00baB', 'Qua', 1): 'Portugu\u00eas', ('7\u00baB', 'Qua', 2): 'Portugu\u00eas', ('7\u00baB', 'Qua', 3): 'Portugu\u00eas', ('7\u00baB', 'Ter', 2): 'Ci\u00eancias', ('7\u00baB', 'Ter', 3): 'Ci\u00eancias', ('7\u00baB', 'Ter', 4): 'Ci\u00eancias', ('7\u00baB', 'Seg', 1): 'Hist\u00f3ria', ('7\u00baB', 'Ter', 1): 'Hist\u00f3ria', ('7\u00baB', 'Seg', 4): 'Ingl\u00eas', ('7\u00baB', 'Seg', 5): 'Ingl\u00eas', ('7\u00baB', 'Seg', 2): 'Educa\u00e7\u00e3o F\u00edsica', ('7\u00baB', 'Seg', 3): 'Educa\u00e7\u00e3o F\u00edsica'}\n34\n",
+          "mimetype": "text/plain"
+        }
+      ]
     }
   ]
 }
