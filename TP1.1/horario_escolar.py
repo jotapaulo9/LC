@@ -40,20 +40,32 @@ def _():
     croooms = pd.read_csv(pathway/"salas.csv")
     availability = pd.read_csv(pathway/"disponibilidade_excecoes.csv")
     subjects = pd.read_csv(pathway/"disciplinas.csv")
-    dias = ["Seg", "Ter", "Qua", "Qui", "Sex"]
-    periodo = range(1,6)
-    carga = dict(zip(subjects["disciplina"], subjects["carga_semanal"]))
+    days = ["Seg", "Ter", "Qua", "Qui", "Sex"]
+    period = range(1,6)
+    workload = dict(zip(subjects["disciplina"], subjects["carga_semanal"]))
 
 
     model = cp_model.CpModel()
     x = {}
     for _c in classes["turma"]:
         for _s in subjects["disciplina"]:
-            for _d in dias:
-                for _p in periodo:
+            for _d in days:
+                for _p in period:
                     x[_c,_s,_d,_p] = model.NewBoolVar(f"_{_c}_{_s}_{_d}_{_p}")
     print(len(x))
-    return carga, classes, cp_model, dias, mo, model, periodo, subjects, x
+    return (
+        availability,
+        classes,
+        cp_model,
+        days,
+        mo,
+        model,
+        pd,
+        period,
+        subjects,
+        workload,
+        x,
+    )
 
 
 @app.cell(hide_code=True)
@@ -66,10 +78,10 @@ def _(mo):
 
 
 @app.cell
-def _(classes, dias, model, periodo, subjects, x):
+def _(classes, days, model, period, subjects, x):
     for _c in classes["turma"]:
-        for _d in dias:
-            for _p in periodo:
+        for _d in days:
+            for _p in period:
                 model.Add(sum(x[_c,_s,_d,_p] for _s in subjects["disciplina"]) <= 1)
     return
 
@@ -84,10 +96,10 @@ def _(mo):
 
 
 @app.cell
-def _(carga, classes, dias, model, periodo, subjects, x):
+def _(classes, days, model, period, subjects, workload, x):
     for _c in classes["turma"]:
         for _s in subjects["disciplina"]:
-            model.Add(sum(x[_c, _s, _d, _p] for _d in dias for _p in periodo) == carga[_s])
+            model.Add(sum(x[_c, _s, _d, _p] for _d in days for _p in period) == workload[_s])
         
     return
 
@@ -104,13 +116,13 @@ def _(mo):
 
 
 @app.cell
-def _(classes, dias, model, periodo, subjects, x):
-    doubleP = {s: isdouble == "sim" for s, isdouble in zip(subjects["disciplina"], subjects["duplo_periodo"])} #precisamos de uma nocao de disciplina dupla para operar sobre ela
+def _(classes, days, model, period, subjects, x):
+    doubleP = {s: isdouble == "sim" for s, isdouble in zip(subjects["disciplina"], subjects["duplo_periodo"])} #precisamos de uma nocao de disciplina dupla para operar sobre elas
     for _c in classes["turma"]:
         for _s in subjects["disciplina"]:
             if not doubleP[_s]:
-                for _d in dias:
-                    model.Add(sum(x[_c, _s, _d, _p] for _p in periodo) <= 1)
+                for _d in days:
+                    model.Add(sum(x[_c, _s, _d, _p] for _p in period) <= 1)
     return (doubleP,)
 
 
@@ -118,7 +130,7 @@ def _(classes, dias, model, periodo, subjects, x):
 def _(mo):
     mo.md(r"""
     ---
-    **(R4)** Disciplinas marcadas `duplo_periodo=sim` só podem ser
+    **(R4)** Disciplinas marcadas `duplo_period=sim` só podem ser
       dadas em blocos de 2 tempos consecutivos, no mesmo dia (nunca um
       tempo isolado).
     """)
@@ -126,24 +138,67 @@ def _(mo):
 
 
 @app.cell
-def _(classes, dias, doubleP, model, periodo, subjects, x):
+def _(classes, days, doubleP, model, period, subjects, x):
     for _c in classes["turma"]:
         for _s in subjects["disciplina"]:
             if doubleP[_s]:
-                for _d in dias:
-                    for _p in periodo:
+                for _d in days:
+                    model.Add(sum(x[_c,_s,_d,_p] for _p in period) <= 2) # vamos restringir 2 blocos de EF por dia 
+                    for _p in period:
                         _consecutive = []
-                        if _p - 1 in periodo:
-                            _consecutive.append(x[_c,_s,_d,_p - 1])
-                        if _p + 1 in periodo:
+                        if _p - 1 in period:
+                            _consecutive.append(x[_c,_s,_d,_p - 1]) 
+                        if _p + 1 in period:
                             _consecutive.append(x[_c,_s,_d,_p + 1])
-                        model.Add(x[_c,_s,_d,_p] <= sum(_consecutive))
-                
+                        model.Add(x[_c,_s,_d,_p] <= sum(_consecutive)) # EF so pode ser colocada no horario sse tiver um bloco antes de _p ou depois 
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ---
+    **(R5)** Um professor não pode dar duas aulas em simultâneo, mesmo
+      que sejam a turmas ou disciplinas diferentes.
+    """)
     return
 
 
 @app.cell
-def _(cp_model, model, x):
+def _(classes, days, model, period, subjects, x):
+    teachers = dict(zip(subjects["disciplina"], subjects["professor"]))
+    teachersList = subjects["professor"].unique()
+    for _t in teachersList:
+        for _d in days:
+            for _p in period:
+                model.Add(sum(x[_c,_s,_d,_p] for _c in classes["turma"] for _s in subjects["disciplina"] if _t == teachers[_s]) <= 1)
+    return (teachers,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ---
+    **(R6)** Um professor só pode dar aulas nos tempos em que está
+      disponível (`disponibilidade_excecoes.csv`).
+    """)
+    return
+
+
+@app.cell
+def _(availability, classes, days, model, period, subjects, teachers, x):
+    unavailable = set(zip(availability["professor"], availability["dia"], availability["periodo"]))
+    for _c in classes["turma"]:
+        for _s in subjects["disciplina"]:
+            for _d in days:
+                for _p in period:
+                    if (teachers[_s], _d, _p) in unavailable:
+                        model.Add(x[_c,_s,_d,_p] == 0)
+    return
+
+
+@app.cell
+def _(cp_model, days, mo, model, pd, period, teachers, x):
     solver = cp_model.CpSolver()
     status = solver.Solve(model)
     print(solver.StatusName(status))
@@ -152,8 +207,23 @@ def _(cp_model, model, x):
     for (_c, _s, _d, _p), var in x.items():
         if solver.Value(var) == 1:
             horario[_c, _d, _p] = _s
-    print(horario)
     print(len(horario))
+
+
+    def show(solver, x, days, periods, teachers): ## feito pelo Claude
+        turmas = list(dict.fromkeys(k[0] for k in x))
+        blocos = []
+        for turma in turmas:
+            tab = pd.DataFrame("", index=list(periods), columns=days)
+            for (t, disc, dia, p), var in x.items():
+                if t == turma and solver.Value(var) == 1:
+                    texto = f"{disc} ({teachers[disc]})"
+                    atual = tab.loc[p, dia]
+                    tab.loc[p, dia] = texto if atual == "" else f"{atual} + {texto}"
+            blocos += [mo.md(f"### {turma}"), tab]
+        return mo.vstack(blocos)
+
+    show(solver, x, days, period, teachers)
     return
 
 

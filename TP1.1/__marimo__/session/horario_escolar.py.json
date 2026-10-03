@@ -20,7 +20,7 @@
     },
     {
       "id": "vblA",
-      "code_hash": "33b2a638a8d069fc0e400dc8b568ec04",
+      "code_hash": "33a1c7d7ce6449f67bbcdc46532162fc",
       "outputs": [
         {
           "type": "data",
@@ -53,7 +53,7 @@
     },
     {
       "id": "sqRh",
-      "code_hash": "cedfe3544b5c8ddb536280dc6e7854ef",
+      "code_hash": "b045fc51f6df6e9d14fa3263afaee826",
       "outputs": [
         {
           "type": "data",
@@ -79,7 +79,7 @@
     },
     {
       "id": "DGqe",
-      "code_hash": "ab92ac1cdfac3d12b6c2f66fd547c692",
+      "code_hash": "3d22b4c2a5d6d00b795b0926ee4e2184",
       "outputs": [
         {
           "type": "data",
@@ -105,7 +105,7 @@
     },
     {
       "id": "JqTp",
-      "code_hash": "d1133ccabd5157daec9d4f4d4ddc6db2",
+      "code_hash": "4d82022b22f14c51a1caab60c3695b7c",
       "outputs": [
         {
           "type": "data",
@@ -118,12 +118,12 @@
     },
     {
       "id": "RIwJ",
-      "code_hash": "eef13d98361f6eb73ecd6f5bdce2bee9",
+      "code_hash": "07352fd0edb157d19ca20002f90c9fc9",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R4)</strong> Disciplinas marcadas <code>duplo_periodo=sim</code> s\u00f3 podem ser\n  dadas em blocos de 2 tempos consecutivos, no mesmo dia (nunca um\n  tempo isolado).</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R4)</strong> Disciplinas marcadas <code>duplo_period=sim</code> s\u00f3 podem ser\n  dadas em blocos de 2 tempos consecutivos, no mesmo dia (nunca um\n  tempo isolado).</span></span>"
           }
         }
       ],
@@ -131,7 +131,59 @@
     },
     {
       "id": "FZgd",
-      "code_hash": "344d9ffc67458535602ab7a83bc91e92",
+      "code_hash": "e90e3b090f7feac5b606fddec29ce110",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ciuw",
+      "code_hash": "c89ac93bcc5d519571bf8de654fca5d9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R5)</strong> Um professor n\u00e3o pode dar duas aulas em simult\u00e2neo, mesmo\n  que sejam a turmas ou disciplinas diferentes.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZNmS",
+      "code_hash": "6d5339efc6b7b63102fb4f7fd58c459a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dPyu",
+      "code_hash": "063a03ee26c2d86f9416498fa1a24725",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R6)</strong> Um professor s\u00f3 pode dar aulas nos tempos em que est\u00e1\n  dispon\u00edvel (<code>disponibilidade_excecoes.csv</code>).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "xias",
+      "code_hash": "cbb6ba43b23d800c08edf71b35b0131a",
       "outputs": [
         {
           "type": "data",
@@ -144,12 +196,12 @@
     },
     {
       "id": "FWpb",
-      "code_hash": "465671d0b5f05ce4bfca1cc5a456c3af",
+      "code_hash": "4f138f0f2229d0843685a37a129894ee",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/plain": ""
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7oa\">7\u00baA</h3></span><marimo-ui-element object-id='FWpb-0' random-id='e51b11ab-a93a-e5d9-ccf6-f8174998d3b6'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;Index0&#92;&quot;:1,&#92;&quot;Seg&#92;&quot;:&#92;&quot;Ingl&#92;&#92;u00eas (Prof. Diana)&#92;&quot;,&#92;&quot;Ter&#92;&quot;:&#92;&quot;Ci&#92;&#92;u00eancias (Prof. Carla)&#92;&quot;,&#92;&quot;Qua&#92;&quot;:&#92;&quot;&#92;&quot;,&#92;&quot;Qui&#92;&quot;:&#92;&quot;Portugu&#92;&#92;u00eas (Prof. Bruno)&#92;&quot;,&#92;&quot;Sex&#92;&quot;:&#92;&quot;Ci&#92;&#92;u00eancias (Prof. Carla)&#92;&quot;},{&#92;&quot;Index0&#92;&quot;:2,&#92;&quot;Seg&#92;&quot;:&#92;&quot;&#92;&quot;,&#92;&quot;Ter&#92;&quot;:&#92;&quot;Portugu&#92;&#92;u00eas (Prof. Bruno)&#92;&quot;,&#92;&quot;Qua&#92;&quot;:&#92;&quot;Portugu&#92;&#92;u00eas (Prof. Bruno)&#92;&quot;,&#92;&quot;Qui&#92;&quot;:&#92;&quot;&#92;&quot;,&#92;&quot;Sex&#92;&quot;:&#92;&quot;&#92;&quot;},{&#92;&quot;Index0&#92;&quot;:3,&#92;&quot;Seg&#92;&quot;:&#92;&quot;Portugu&#92;&#92;u00eas (Prof. Bruno)&#92;&quot;,&#92;&quot;Ter&#92;&quot;:&#92;&quot;Hist&#92;&#92;u00f3ria (Prof. Diana)&#92;&quot;,&#92;&quot;Qua&#92;&quot;:&#92;&quot;&#92;&quot;,&#92;&quot;Qui&#92;&quot;:&#92;&quot;Ingl&#92;&#92;u00eas (Prof. Diana)&#92;&quot;,&#92;&quot;Sex&#92;&quot;:&#92;&quot;&#92;&quot;},{&#92;&quot;Index0&#92;&quot;:4,&#92;&quot;Seg&#92;&quot;:&#92;&quot;Matem&#92;&#92;u00e1tica (Prof. Ana)&#92;&quot;,&#92;&quot;Ter&#92;&quot;:&#92;&quot;Educa&#92;&#92;u00e7&#92;&#92;u00e3o F&#92;&#92;u00edsica (Prof. Eduardo)&#92;&quot;,&#92;&quot;Qua&#92;&quot;:&#92;&quot;&#92;&quot;,&#92;&quot;Qui&#92;&quot;:&#92;&quot;Ci&#92;&#92;u00eancias (Prof. Carla)&#92;&quot;,&#92;&quot;Sex&#92;&quot;:&#92;&quot;Matem&#92;&#92;u00e1tica (Prof. Ana)&#92;&quot;},{&#92;&quot;Index0&#92;&quot;:5,&#92;&quot;Seg&#92;&quot;:&#92;&quot;Hist&#92;&#92;u00f3ria (Prof. Diana)&#92;&quot;,&#92;&quot;Ter&#92;&quot;:&#92;&quot;Educa&#92;&#92;u00e7&#92;&#92;u00e3o F&#92;&#92;u00edsica (Prof. Eduardo)&#92;&quot;,&#92;&quot;Qua&#92;&quot;:&#92;&quot;Matem&#92;&#92;u00e1tica (Prof. Ana)&#92;&quot;,&#92;&quot;Qui&#92;&quot;:&#92;&quot;Matem&#92;&#92;u00e1tica (Prof. Ana)&#92;&quot;,&#92;&quot;Sex&#92;&quot;:&#92;&quot;&#92;&quot;}]&quot;' data-total-rows='5' data-total-columns='5' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='false' data-page-size='10' data-field-types='[[&quot;Seg&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;Ter&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;Qua&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;Qui&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;Sex&quot;,[&quot;string&quot;,&quot;str&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[[&quot;Index0&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7ob\">7\u00baB</h3></span><marimo-ui-element object-id='FWpb-1' random-id='5040d769-7b16-b255-3f54-3264d8d7f2d9'><marimo-table data-initial-value='[]' data-label='null' data-data='&quot;[{&#92;&quot;Index0&#92;&quot;:1,&#92;&quot;Seg&#92;&quot;:&#92;&quot;Ci&#92;&#92;u00eancias (Prof. Carla)&#92;&quot;,&#92;&quot;Ter&#92;&quot;:&#92;&quot;Ingl&#92;&#92;u00eas (Prof. Diana)&#92;&quot;,&#92;&quot;Qua&#92;&quot;:&#92;&quot;Ci&#92;&#92;u00eancias (Prof. Carla)&#92;&quot;,&#92;&quot;Qui&#92;&quot;:&#92;&quot;&#92;&quot;,&#92;&quot;Sex&#92;&quot;:&#92;&quot;Matem&#92;&#92;u00e1tica (Prof. Ana)&#92;&quot;},{&#92;&quot;Index0&#92;&quot;:2,&#92;&quot;Seg&#92;&quot;:&#92;&quot;Hist&#92;&#92;u00f3ria (Prof. Diana)&#92;&quot;,&#92;&quot;Ter&#92;&quot;:&#92;&quot;Hist&#92;&#92;u00f3ria (Prof. Diana)&#92;&quot;,&#92;&quot;Qua&#92;&quot;:&#92;&quot;Matem&#92;&#92;u00e1tica (Prof. Ana)&#92;&quot;,&#92;&quot;Qui&#92;&quot;:&#92;&quot;&#92;&quot;,&#92;&quot;Sex&#92;&quot;:&#92;&quot;&#92;&quot;},{&#92;&quot;Index0&#92;&quot;:3,&#92;&quot;Seg&#92;&quot;:&#92;&quot;Ingl&#92;&#92;u00eas (Prof. Diana)&#92;&quot;,&#92;&quot;Ter&#92;&quot;:&#92;&quot;Matem&#92;&#92;u00e1tica (Prof. Ana)&#92;&quot;,&#92;&quot;Qua&#92;&quot;:&#92;&quot;&#92;&quot;,&#92;&quot;Qui&#92;&quot;:&#92;&quot;&#92;&quot;,&#92;&quot;Sex&#92;&quot;:&#92;&quot;Portugu&#92;&#92;u00eas (Prof. Bruno)&#92;&quot;},{&#92;&quot;Index0&#92;&quot;:4,&#92;&quot;Seg&#92;&quot;:&#92;&quot;Educa&#92;&#92;u00e7&#92;&#92;u00e3o F&#92;&#92;u00edsica (Prof. Eduardo)&#92;&quot;,&#92;&quot;Ter&#92;&quot;:&#92;&quot;Portugu&#92;&#92;u00eas (Prof. Bruno)&#92;&quot;,&#92;&quot;Qua&#92;&quot;:&#92;&quot;&#92;&quot;,&#92;&quot;Qui&#92;&quot;:&#92;&quot;Matem&#92;&#92;u00e1tica (Prof. Ana)&#92;&quot;,&#92;&quot;Sex&#92;&quot;:&#92;&quot;&#92;&quot;},{&#92;&quot;Index0&#92;&quot;:5,&#92;&quot;Seg&#92;&quot;:&#92;&quot;Educa&#92;&#92;u00e7&#92;&#92;u00e3o F&#92;&#92;u00edsica (Prof. Eduardo)&#92;&quot;,&#92;&quot;Ter&#92;&quot;:&#92;&quot;Ci&#92;&#92;u00eancias (Prof. Carla)&#92;&quot;,&#92;&quot;Qua&#92;&quot;:&#92;&quot;Portugu&#92;&#92;u00eas (Prof. Bruno)&#92;&quot;,&#92;&quot;Qui&#92;&quot;:&#92;&quot;Portugu&#92;&#92;u00eas (Prof. Bruno)&#92;&quot;,&#92;&quot;Sex&#92;&quot;:&#92;&quot;&#92;&quot;}]&quot;' data-total-rows='5' data-total-columns='5' data-max-columns='50' data-banner-text='&quot;&quot;' data-pagination='false' data-page-size='10' data-field-types='[[&quot;Seg&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;Ter&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;Qua&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;Qui&quot;,[&quot;string&quot;,&quot;str&quot;]],[&quot;Sex&quot;,[&quot;string&quot;,&quot;str&quot;]]]' data-show-filters='true' data-show-download='true' data-show-search='true' data-show-column-summaries='false' data-show-data-types='true' data-show-page-size-selector='false' data-show-column-explorer='true' data-show-chart-builder='true' data-row-headers='[[&quot;Index0&quot;,[&quot;integer&quot;,&quot;int64&quot;]]]' data-hidden-columns='[]' data-has-stable-row-id='false' data-lazy='false' data-preload='false'></marimo-table></marimo-ui-element></div>"
           }
         }
       ],
@@ -157,7 +209,7 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "OPTIMAL\n{('7\u00baA', 'Qua', 4): 'Matem\u00e1tica', ('7\u00baA', 'Qua', 5): 'Matem\u00e1tica', ('7\u00baA', 'Qui', 1): 'Matem\u00e1tica', ('7\u00baA', 'Qui', 2): 'Matem\u00e1tica', ('7\u00baA', 'Ter', 5): 'Portugu\u00eas', ('7\u00baA', 'Qua', 1): 'Portugu\u00eas', ('7\u00baA', 'Qua', 2): 'Portugu\u00eas', ('7\u00baA', 'Qua', 3): 'Portugu\u00eas', ('7\u00baA', 'Ter', 2): 'Ci\u00eancias', ('7\u00baA', 'Ter', 3): 'Ci\u00eancias', ('7\u00baA', 'Ter', 4): 'Ci\u00eancias', ('7\u00baA', 'Seg', 1): 'Hist\u00f3ria', ('7\u00baA', 'Seg', 2): 'Hist\u00f3ria', ('7\u00baA', 'Seg', 5): 'Ingl\u00eas', ('7\u00baA', 'Ter', 1): 'Ingl\u00eas', ('7\u00baA', 'Seg', 3): 'Educa\u00e7\u00e3o F\u00edsica', ('7\u00baA', 'Seg', 4): 'Educa\u00e7\u00e3o F\u00edsica', ('7\u00baB', 'Qua', 4): 'Matem\u00e1tica', ('7\u00baB', 'Qua', 5): 'Matem\u00e1tica', ('7\u00baB', 'Qui', 1): 'Matem\u00e1tica', ('7\u00baB', 'Qui', 2): 'Matem\u00e1tica', ('7\u00baB', 'Ter', 5): 'Portugu\u00eas', ('7\u00baB', 'Qua', 1): 'Portugu\u00eas', ('7\u00baB', 'Qua', 2): 'Portugu\u00eas', ('7\u00baB', 'Qua', 3): 'Portugu\u00eas', ('7\u00baB', 'Ter', 2): 'Ci\u00eancias', ('7\u00baB', 'Ter', 3): 'Ci\u00eancias', ('7\u00baB', 'Ter', 4): 'Ci\u00eancias', ('7\u00baB', 'Seg', 1): 'Hist\u00f3ria', ('7\u00baB', 'Ter', 1): 'Hist\u00f3ria', ('7\u00baB', 'Seg', 4): 'Ingl\u00eas', ('7\u00baB', 'Seg', 5): 'Ingl\u00eas', ('7\u00baB', 'Seg', 2): 'Educa\u00e7\u00e3o F\u00edsica', ('7\u00baB', 'Seg', 3): 'Educa\u00e7\u00e3o F\u00edsica'}\n34\n",
+          "text": "OPTIMAL\n34\n",
           "mimetype": "text/plain"
         }
       ]
