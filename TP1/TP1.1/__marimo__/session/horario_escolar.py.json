@@ -1,0 +1,270 @@
+{
+  "version": "1",
+  "metadata": {
+    "marimo_version": "0.25.0",
+    "script_metadata_hash": "cdac4f193ea60f385129ed849f93ec6c"
+  },
+  "cells": [
+    {
+      "id": "Hbol",
+      "code_hash": "5dc3f334766d6f6df020e44671e7d677",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"tp1\">TP1</h1>\n<h2 id=\"grupo\">Grupo</h2>\n<span class=\"paragraph\">Jo\u00e3o Pontes, A111657</span>\n<span class=\"paragraph\">Jo\u00e3o Paulo, A110393</span>\n<span class=\"paragraph\">Objetivo: Criar um hor\u00e1rio escolar semanal cumpridor de determinadas restri\u00e7\u00f5es (consultar horario_escolar_enunciado.py).</span>\n<hr />\n<span class=\"paragraph\"><strong>(R8)</strong> Para a leitura dos dados .csv:</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vblA",
+      "code_hash": "a3360e65533f4e76571de3d6df68b500",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "300\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "LmZS",
+      "code_hash": "68cfe6c6fa3e15f03c2c28054c6dae7b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R1)</strong> Uma turma n\u00e3o pode ter duas aulas em simult\u00e2neo, pelo que:</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "sqRh",
+      "code_hash": "b045fc51f6df6e9d14fa3263afaee826",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "QKCn",
+      "code_hash": "a4e15d233f76387c13dcceb2dd36d2f3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R2)</strong> Cada disciplina cumpre <em>exatamente</em> a carga semanal</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DGqe",
+      "code_hash": "3d22b4c2a5d6d00b795b0926ee4e2184",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "HdQv",
+      "code_hash": "bd5808187296bdb2f7a81764c842e46a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R3)</strong> No m\u00e1ximo uma aula da mesma disciplina por dia, por\nturma \u2014 exceto disciplinas de duplo per\u00edodo (ver R4), em que o\nbloco de 2 tempos conta como uma s\u00f3 ocorr\u00eancia nesse dia.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "JqTp",
+      "code_hash": "4d82022b22f14c51a1caab60c3695b7c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RIwJ",
+      "code_hash": "07352fd0edb157d19ca20002f90c9fc9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R4)</strong> Disciplinas marcadas <code>duplo_period=sim</code> s\u00f3 podem ser\n  dadas em blocos de 2 tempos consecutivos, no mesmo dia (nunca um\n  tempo isolado).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "FZgd",
+      "code_hash": "e90e3b090f7feac5b606fddec29ce110",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ciuw",
+      "code_hash": "c89ac93bcc5d519571bf8de654fca5d9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R5)</strong> Um professor n\u00e3o pode dar duas aulas em simult\u00e2neo, mesmo\n  que sejam a turmas ou disciplinas diferentes.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ZNmS",
+      "code_hash": "6d5339efc6b7b63102fb4f7fd58c459a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dPyu",
+      "code_hash": "063a03ee26c2d86f9416498fa1a24725",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R6)</strong> Um professor s\u00f3 pode dar aulas nos tempos em que est\u00e1\n  dispon\u00edvel (<code>disponibilidade_excecoes.csv</code>).</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "xias",
+      "code_hash": "cbb6ba43b23d800c08edf71b35b0131a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RxTZ",
+      "code_hash": "28d590c2ff88037c1df45a338f397d88",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R7)</strong> Cada aula ocupa uma sala. Disciplinas com <code>sala_especial</code>\n  s\u00f3 podem usar salas desse tipo; as restantes usam salas normais</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "cVSd",
+      "code_hash": "2d712ce0f2a10d5a87589838c3f1ad5a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "JwuT",
+      "code_hash": "b142d64ca2dbd8869d69b05af6d3dfc1",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(O1)</strong> Minimizar o n\u00famero total de \"buracos\" no hor\u00e1rio de cada professor \u2014 um buraco \u00e9 um tempo livre, no meio do dia, entre a primeira e a \u00faltima aula desse professor nesse dia.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "FvSC",
+      "code_hash": "9f416e119fb3a51df9e92ca373a7898a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "FWpb",
+      "code_hash": "0621e70b217069fafa699f744547cdae",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7oa\">7\u00baA</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n    </tr>\n  </tbody>\n</table><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7ob\">7\u00baB</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td></td>\n    </tr>\n  </tbody>\n</table></div>"
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "OPTIMAL\n34\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    }
+  ]
+}
