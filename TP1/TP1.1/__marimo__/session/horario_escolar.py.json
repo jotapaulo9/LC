@@ -7,7 +7,7 @@
   "cells": [
     {
       "id": "Hbol",
-      "code_hash": "5dc3f334766d6f6df020e44671e7d677",
+      "code_hash": "456c9de7cbd1f81d6d0d07c10a0a188f",
       "outputs": [
         {
           "type": "data",
@@ -19,27 +19,13 @@
       "console": []
     },
     {
-      "id": "vblA",
+      "id": "MJUe",
       "code_hash": "a3360e65533f4e76571de3d6df68b500",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "300\n",
-          "mimetype": "text/plain"
-        }
-      ]
+      "outputs": [],
+      "console": []
     },
     {
-      "id": "LmZS",
+      "id": "vblA",
       "code_hash": "68cfe6c6fa3e15f03c2c28054c6dae7b",
       "outputs": [
         {
@@ -52,20 +38,13 @@
       "console": []
     },
     {
-      "id": "sqRh",
+      "id": "bkHC",
       "code_hash": "b045fc51f6df6e9d14fa3263afaee826",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
+      "outputs": [],
       "console": []
     },
     {
-      "id": "QKCn",
+      "id": "lEQa",
       "code_hash": "a4e15d233f76387c13dcceb2dd36d2f3",
       "outputs": [
         {
@@ -78,20 +57,13 @@
       "console": []
     },
     {
-      "id": "DGqe",
-      "code_hash": "3d22b4c2a5d6d00b795b0926ee4e2184",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
+      "id": "PKri",
+      "code_hash": "005443ae8a4b8b4cc21ce9af8e4db8e9",
+      "outputs": [],
       "console": []
     },
     {
-      "id": "HdQv",
+      "id": "Xref",
       "code_hash": "bd5808187296bdb2f7a81764c842e46a",
       "outputs": [
         {
@@ -104,20 +76,13 @@
       "console": []
     },
     {
-      "id": "JqTp",
+      "id": "SFPL",
       "code_hash": "4d82022b22f14c51a1caab60c3695b7c",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
+      "outputs": [],
       "console": []
     },
     {
-      "id": "RIwJ",
+      "id": "BYtC",
       "code_hash": "07352fd0edb157d19ca20002f90c9fc9",
       "outputs": [
         {
@@ -130,20 +95,13 @@
       "console": []
     },
     {
-      "id": "FZgd",
+      "id": "RGSE",
       "code_hash": "e90e3b090f7feac5b606fddec29ce110",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
+      "outputs": [],
       "console": []
     },
     {
-      "id": "ciuw",
+      "id": "Kclp",
       "code_hash": "c89ac93bcc5d519571bf8de654fca5d9",
       "outputs": [
         {
@@ -156,20 +114,13 @@
       "console": []
     },
     {
-      "id": "ZNmS",
+      "id": "emfo",
       "code_hash": "6d5339efc6b7b63102fb4f7fd58c459a",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
+      "outputs": [],
       "console": []
     },
     {
-      "id": "dPyu",
+      "id": "Hstk",
       "code_hash": "063a03ee26c2d86f9416498fa1a24725",
       "outputs": [
         {
@@ -182,20 +133,13 @@
       "console": []
     },
     {
-      "id": "xias",
-      "code_hash": "cbb6ba43b23d800c08edf71b35b0131a",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
+      "id": "nWHF",
+      "code_hash": "5696451ff7adfc6816f73bafc1b488a6",
+      "outputs": [],
       "console": []
     },
     {
-      "id": "RxTZ",
+      "id": "iLit",
       "code_hash": "28d590c2ff88037c1df45a338f397d88",
       "outputs": [
         {
@@ -208,20 +152,13 @@
       "console": []
     },
     {
-      "id": "cVSd",
-      "code_hash": "2d712ce0f2a10d5a87589838c3f1ad5a",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
+      "id": "ZHCJ",
+      "code_hash": "7d16b33bf26cdfb3a0110032b52b210a",
+      "outputs": [],
       "console": []
     },
     {
-      "id": "JwuT",
+      "id": "ROlb",
       "code_hash": "b142d64ca2dbd8869d69b05af6d3dfc1",
       "outputs": [
         {
@@ -234,37 +171,28 @@
       "console": []
     },
     {
-      "id": "FvSC",
-      "code_hash": "9f416e119fb3a51df9e92ca373a7898a",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
+      "id": "qnkX",
+      "code_hash": "27d9e61eae6979c0ca12ccabdc076fe9",
+      "outputs": [],
       "console": []
     },
     {
-      "id": "FWpb",
+      "id": "DnEU",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
+      "id": "TqIu",
       "code_hash": "0621e70b217069fafa699f744547cdae",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7oa\">7\u00baA</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n    </tr>\n  </tbody>\n</table><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7ob\">7\u00baB</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td></td>\n    </tr>\n  </tbody>\n</table></div>"
-          }
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stdout",
-          "text": "OPTIMAL\n34\n",
-          "mimetype": "text/plain"
-        }
-      ]
+      "outputs": [],
+      "console": []
     }
   ]
 }

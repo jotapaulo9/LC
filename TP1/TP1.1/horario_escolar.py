@@ -54,6 +54,7 @@ def _():
                     x[_c,_s,_d,_p] = model.NewBoolVar(f"_{_c}_{_s}_{_d}_{_p}")
     print(len(x))
     return (
+        Path,
         availability,
         classes,
         cp_model,
@@ -101,7 +102,7 @@ def _(classes, days, model, period, subjects, workload, x):
     for _c in classes["turma"]:
         for _s in subjects["disciplina"]:
             model.Add(sum(x[_c, _s, _d, _p] for _d in days for _p in period) == workload[_s])
-        
+    
     return
 
 
@@ -195,7 +196,7 @@ def _(availability, classes, days, model, period, subjects, teachers, x):
                 for _p in period:
                     if (teachers[_s], _d, _p) in unavailable:
                         model.Add(x[_c,_s,_d,_p] == 0)
-    return
+    return (unavailable,)
 
 
 @app.cell(hide_code=True)
@@ -224,7 +225,6 @@ def _(classes, crooms, days, model, pd, period, subjects, x):
             for _p in period:
                  model.Add(sum(x[_c,_s,_d,_p] for _c in classes["turma"] for _s in subjects["disciplina"] if typo[_s] == _r) <= capacity[_r]) 
 
-
     return (typo,)
 
 
@@ -245,7 +245,7 @@ def _(classes, days, model, period, subjects, teachers, teachersList, x):
     for _t in teachersList:
         for _d in days:
             first[_t,_d] = model.NewIntVar(min(period), max(period), f"first_{_t}_{_d}")
-            
+        
     last = {} #ultima
     for _t in teachersList:
         for _d in days:
@@ -256,7 +256,7 @@ def _(classes, days, model, period, subjects, teachers, teachersList, x):
         for _d in days:
             holes[_t,_d] = model.NewIntVar(0,len(period), f"holes_{_t}_{_d}") #não vou colocar limite fixo, len(period) fica mais versátil
 
-    w = {} #bool var para verificacao da disponibilidade do professor
+    w = {} #bool var para verificacao da disponibilidade do professor 
     for _t in teachersList:
         for _d in days:
             for _p in period:
@@ -276,7 +276,45 @@ def _(classes, days, model, period, subjects, teachers, teachersList, x):
         for _d in days:
             for _p in period:
                 model.Add(sum(x[_c,_s,_d,_p] for _c in classes["turma"] for _s in subjects["disciplina"] if teachers[_s] == _t) == w[_t,_d,_p])
+    return
 
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    **(R9)**
+        1. Gerar um horário válido `H0` a partir de um conjunto de
+           dados inicial (`dados/`).
+        2. Dada uma pequena alteração aos recursos — por exemplo, a
+           que está em `dados_v2/` (o Prof. Eduardo continua limitado
+           às tardes, mas a Prof. Ana passa a estar indisponível às
+           sextas-feiras nos 2 últimos tempos) — gerar um novo horário
+           válido `H1` que respeite R1–R8 com os novos dados.
+        3. `H1` deve ser produzido **de forma eficiente** (mais rápido
+           do que resolver `H1` do zero, sem usar `H0`) e **minimizando
+           o número de aulas que mudam de tempo/sala** entre `H0` e
+           `H1` — `H1` não precisa de ser ótimo em relação a O1.
+    """)
+    return
+
+
+@app.cell
+def _(Path, horario, pd, teachers, unavailable):
+    H0 = dict(horario)
+    pathway2 = Path("dados_v2")
+    availability2 = pd.read_csv(pathway2/"disponibilidade_excecoes.csv")
+    unavailable2 = set(zip(availability2["professor"], availability2["dia"], availability2["periodo"])) 
+
+    affected = []
+    for(_c,_d,_p), _s in H0.items(): #vamos encontrar as aulas afetadas pelas novas indisponibilidades
+        if (teachers[_s], _d, _p)  in unavailable2:
+            affected.append((_c,_s,_d,_p)) 
+
+    ## falta apenas colocar a restrição em prática. se estiver em affected, obrigamos a mudar
+    print(len(affected))
+    print(("Prof. Ana", "Sex", 4) in unavailable2)
+    print(len(unavailable2))
+    print(len(unavailable))
     return
 
 
@@ -293,7 +331,7 @@ def _(cp_model, days, mo, model, pd, period, teachers, typo, x):
     print(len(horario))
 
 
-    def show(solver, x, days, periods, teachers, typo):
+    def show(solver, x, days, periods, teachers, typo): #feito pelo Claude
         turmas = list(dict.fromkeys(k[0] for k in x))
         blocos = []
         for turma in turmas:
@@ -307,7 +345,7 @@ def _(cp_model, days, mo, model, pd, period, teachers, typo, x):
         return mo.vstack(blocos)
 
     show(solver, x, days, period, teachers, typo)
-    return
+    return (horario,)
 
 
 if __name__ == "__main__":
