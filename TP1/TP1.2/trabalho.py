@@ -806,7 +806,7 @@ def _(mo):
 
     Todo o código foi lido, testado e compreendido pelo grupo antes de ser entregue.
 
-    https://share.gemini.google/msahl6WOkk9a
+    https://share.gemini.google/5tLL75dZnSwZ
     """)
     return
 
