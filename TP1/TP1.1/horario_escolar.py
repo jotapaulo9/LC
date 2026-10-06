@@ -12,18 +12,21 @@ app = marimo.App(width="medium")
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    # TP1
+    #TP1.1
 
-    ## Grupo
+    ##Grupo 19
     João Pontes, A111657
 
     João Paulo, A110393
 
     Objetivo: Criar um horário escolar semanal cumpridor de determinadas restrições (consultar horario_escolar_enunciado.py).
 
-
     ---
-    **(R8)** Para a leitura dos dados .csv:
+
+    **Importação de Bibliotecas e Inicialização de Dados**
+
+    Nesta primeira célula, procedemos à importação das ferramentas necessárias para a resolução do problema. Utilizamos o `pandas` para a leitura e manipulação eficiente dos ficheiros `.csv` fornecidos, e a biblioteca `ortools.sat.python` (especificamente o módulo `cp_model`), que nos permite modelar o problema de alocação de horários.
+    Aqui, definimos também as estruturas de dados nevrálgicas, tais como os dias da semana, os períodos letivos diários e um dicionário que mapeia cada disciplina à sua respetiva carga horária semanal.
     """)
     return
 
@@ -63,7 +66,13 @@ def _():
 def _(mo):
     mo.md(r"""
     ---
-    Declaração do dicionário das disciplinas que ocupam períodos/blocos duplos, variáveis professor e lista de professores, set para professores indisponíveis, capacidade e tipo de sala.
+
+    **Processamento e Estruturação das Restrições Específicas**
+
+    - `doubleP`: Identifica através de um valor booleano quais as disciplinas que exigem a marcação de blocos de aulas duplos.
+    - `teachers` e `teachersList`: Mapeiam a correspondência entre cada disciplina e o professor responsável, bem como a lista de todos os docentes únicos.
+    - `unavailable`: Cria um conjunto (`set`) de tuplos contendo as indisponibilidades predefinidas dos professores, cruzando docente, dia e período, de modo a acelerar a verificação de conflitos durante a geração do horário.
+    - `capacity` e `typo`: Definem a lotação máxima de cada sala e associam as necessidades específicas de cada disciplina ao tipo de sala exigido (por exemplo, a necessidade de um laboratório em vez de uma sala normal).
     """)
     return
 
@@ -106,6 +115,15 @@ def _(mo):
     ---
 
     **(O1)** Minimizar o número total de "buracos" no horário de cada professor — um buraco é um tempo livre, no meio do dia, entre a primeira e a última aula desse professor nesse dia.
+
+    ---
+
+    **Função de Otimização: Minimização de "Buracos" (`manageHoles`)**
+
+    O intuito é garantir a melhor qualidade de horário possível para os docentes, minimizando os chamados "buracos" (tempos livres intercalados entre aulas no meio do mesmo dia).
+
+    Para o conseguir, o algoritmo cria variáveis inteiras para identificar dinamicamente o período da primeira (`first`) e da última (`last`) aula de cada professor em cada dia útil.
+    Em seguida, contabiliza o intervalo de tempo entre estes dois limites, subtraindo o número real de aulas dadas nesse dia. O objetivo do modelo (`model.Minimize`) é, assim, reduzir a soma total destes tempos mortos em toda a escola.
     """)
     return
 
@@ -160,14 +178,14 @@ def _(classes, days, period, subjects, teachers, teachersList):
 def _(mo):
     mo.md(r"""
     **(R9)**
-        1. Gerar um horário válido `H0` a partir de um conjunto de
+    1. Gerar um horário válido `H0` a partir de um conjunto de
            dados inicial (`dados/`).
-        2. Dada uma pequena alteração aos recursos — por exemplo, a
+    2. Dada uma pequena alteração aos recursos — por exemplo, a
            que está em `dados_v2/` (o Prof. Eduardo continua limitado
            às tardes, mas a Prof. Ana passa a estar indisponível às
            sextas-feiras nos 2 últimos tempos) — gerar um novo horário
            válido `H1` que respeite R1–R8 com os novos dados.
-        3. `H1` deve ser produzido **de forma eficiente** (mais rápido
+    3. `H1` deve ser produzido **de forma eficiente** (mais rápido
            do que resolver `H1` do zero, sem usar `H0`) e **minimizando
            o número de aulas que mudam de tempo/sala** entre `H0` e
            `H1` — `H1` não precisa de ser ótimo em relação a O1.
@@ -186,9 +204,7 @@ def _(H0, Path, pd, teachers, unavailable):
         if (teachers[_s], _d, _p)  in unavailable2:
             affected.append((_c,_s,_d,_p)) 
 
-    ## falta apenas colocar a restrição em prática. se estiver em affected, obrigamos a mudar
     print(len(affected))
-    print(("Prof. Ana", "Sex", 4) in unavailable2)
     print(len(unavailable2))
     print(len(unavailable))
     return (unavailable2,)
@@ -197,11 +213,15 @@ def _(H0, Path, pd, teachers, unavailable):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    ---
+    **Função Base de Construção do Modelo (`.build()`)**
 
-    ## Método .build() ##
-
-    Neste método estão contidos os algoritmos de cada restrição
+        Esta célula encapsula a lógica principal de criação do horário na função `build(unavailable)`.
+        Adicionamos rigorosamente todas as restrições estruturais imperativas ao modelo (R1-R7):
+    1. Impedir a sobreposição de aulas: cada turma tem, no máximo, uma aula por cada período;
+    2. Garantir o cumprimento exato da carga horária semanal definida para cada disciplina;
+    3. Assegurar a correta distribuição das aulas ao longo da semana, impondo também que as aulas de período duplo ocorrem obrigatoriamente em tempos consecutivos no mesmo dia;
+    4. Prevenir sobreposições para os docentes (não podem lecionar a turmas distintas no mesmo instante) e impor os seus períodos de indisponibilidade;
+    5. Respeitar a capacidade limite das salas face à lotação necessária e garantir que as disciplinas ocupam apenas os tipos de sala apropriados.
     """)
     return
 
@@ -285,29 +305,21 @@ def _(
     return (build,)
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    **Instanciação de (H0)**
+
+    Nesta etapa, invocamos a função `build` utilizando os dados de indisponibilidade originais. A este modelo aplicamos a função de otimização `manageHoles`, preparando o solver para gerar a primeira solução ótima para o horário escolar, partindo completamente do zero.
+    """)
+    return
+
+
 @app.cell
 def _(build, manageHoles, unavailable):
     model, x = build(unavailable)
     manageHoles(model, x)
     return model, x
-
-
-@app.cell
-def _(H0, build, unavailable2):
-    model1, x1 = build(unavailable2)
-    kept = []
-    for (_c, _d, _p), _s in H0.items():
-        kept.append(x1[_c, _s, _d, _p])
-
-    model1.Maximize(sum(kept))
-    return model1, x1
-
-
-@app.cell
-def _(build, manageHoles, unavailable2):
-    model2, x2 = build(unavailable2)
-    manageHoles(model2, x2)
-    return model2, x2
 
 
 @app.cell
@@ -323,7 +335,31 @@ def _(cp_model, model, x):
     H0 = dict(horario)
     print(len(horario))
 
-    return (H0,)
+    return H0, solver
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ---
+
+    **Instanciação de (H1)** - condicionado por dados_v2
+
+    Aqui construímos um novo modelo que já incorpora as indisponibilidades atualizadas (versão 2). Contudo, em vez de procurarmos do zero um novo horário ótimo que minimize os buracos, o nosso objetivo primordial (`Maximize(sum(kept))`) passa a ser **maximizar o número de aulas que se mantêm estritamente no mesmo dia e período** face à solução inicial `H0`.
+    Este processo assegura uma transição suave, permitindo ajustar o horário de forma muito mais eficiente em termos computacionais e provocando a mínima disrupção na rotina já estabelecida de alunos e professores.
+    """)
+    return
+
+
+@app.cell
+def _(H0, build, unavailable2):
+    model1, x1 = build(unavailable2) #apenas o model1 é inicializado com o kept
+    kept = []
+    for (_c, _d, _p), _s in H0.items():
+        kept.append(x1[_c, _s, _d, _p])
+
+    model1.Maximize(sum(kept))
+    return model1, x1
 
 
 @app.cell
@@ -344,6 +380,25 @@ def _(H0, cp_model, model1, x1):
     return (solver1,)
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ---
+
+    **Instanciação de (H2)**
+
+    Criamos um terceiro modelo, igualmente suportado nos novos dados de disponibilidade, mas regressando à função objetivo original (`manageHoles`). O propósito deste passo é puramente comparativo: permite-nos avaliar e contrastar o tempo de execução e o volume de alterações estruturais resultantes de um reajuste minimalista (`H1`), por oposição a um cálculo de um novo horário feito inteiramente de raiz.
+    """)
+    return
+
+
+@app.cell
+def _(build, manageHoles, unavailable2):
+    model2, x2 = build(unavailable2)
+    manageHoles(model2, x2)
+    return model2, x2
+
+
 @app.cell
 def _(H0, cp_model, model2, x2):
     solver2 = cp_model.CpSolver()
@@ -357,11 +412,79 @@ def _(H0, cp_model, model2, x2):
     H2 = dict(horario2)
     print(len(horario2))
     print(len(set(H0.items()) - set(H2.items())))
+    return (solver2,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ---
+
+    **Instanciação de (H3)**
+
+    Criamos um ultimo modelo, com novas indsiponibilidades, mas regressando à função objetivo original (`manageHoles`). A criação deste modelo permito-nos testar a versatilidade do código.
+
+    As novas indisponibilidades são do professor Bruno.
+    """)
     return
 
 
 @app.cell
-def _(days, mo, pd, period, solver1, teachers, typo, x1):
+def _(Path, pd):
+    pathway3 = Path("dados_v3")
+    availability3 = pd.read_csv(pathway3/"disponibilidade_excecoes.csv")
+    unavailable3 = set(zip(availability3["professor"], availability3["dia"], availability3["periodo"]))
+    return (unavailable3,)
+
+
+@app.cell
+def _(build, manageHoles, unavailable3):
+    model3, x3 = build(unavailable3)
+    manageHoles(model3,x3)
+    print(len(unavailable3))
+    return model3, x3
+
+
+@app.cell
+def _(H0, cp_model, model3, solver2, x3):
+    solver3 = cp_model.CpSolver()
+    status3 = solver3.Solve(model3)
+    print(solver3.StatusName(status3), solver3.ObjectiveValue(), solver3.WallTime())
+
+
+    horario3 = {}
+    for (_c,_s,_d,_p), var3 in x3.items():
+        if solver2.Value(var3) == 1:
+            horario3[_c,_d,_p] = _s
+    H3 = dict(horario3)
+    print(len(horario3))
+    print(len(set(H0.items()) - set(H3.items())))
+    return H3, solver3
+
+
+@app.cell
+def _(H3, teachers, unavailable3):
+    affectedv3 = []
+    for(_c,_d,_p), _s in H3.items(): #vamos, novamente, encontrar as aulas afetadas pelas novas indisponibilidades(dados_v3)
+        if (teachers[_s], _d, _p)  in unavailable3:
+            affectedv3.append((_c,_s,_d,_p)) 
+    print(len(affectedv3)) # 3 aulas afetadas por dados_v3
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    **Método `.show()`**
+
+    Na célula final, focamo-nos na apresentação gráfica dos resultados. Definimos a função `show`, cujo propósito é percorrer as variáveis de decisão validadas pelo algoritmo e transformar esses dados em tabelas estruturadas (através de `pd.DataFrame`).
+    Estes dados são seguidamente convertidos para formato HTML e integrados na interface da plataforma Marimo recorrendo à função `mo.Html`. Este procedimento permite-nos apresentar o produto final — o horário detalhado de cada turma — de uma forma visualmente apelativa e de fácil leitura.
+    """)
+    return
+
+
+@app.cell
+def _(mo, pd):
 
     def show(solver, x, days, periods, teachers, typo): #feito pelo Claude
         turmas = list(dict.fromkeys(k[0] for k in x))
@@ -376,8 +499,26 @@ def _(days, mo, pd, period, solver1, teachers, typo, x1):
             blocos += [mo.md(f"### {turma}"), mo.Html(tab.to_html(escape=False))]
         return mo.vstack(blocos)
 
-    show(solver1, x1, days, period, teachers, typo)
 
+
+    return (show,)
+
+
+@app.cell
+def _(days, period, show, solver, teachers, typo, x):
+    show(solver, x, days, period, teachers, typo) #H0
+    return
+
+
+@app.cell
+def _(days, period, show, solver1, teachers, typo, x):
+    show(solver1, x, days, period, teachers, typo) #H1
+    return
+
+
+@app.cell
+def _(days, period, show, solver3, teachers, typo, x3):
+    show(solver3, x3, days, period, teachers, typo) #Horário com dados_v3
     return
 
 
