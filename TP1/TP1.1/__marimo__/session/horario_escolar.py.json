@@ -157,12 +157,12 @@
     },
     {
       "id": "Gsbv",
-      "code_hash": "dc8722468aaacd05a5976473f8f2ec9d",
+      "code_hash": "6e773d8e2014a99169a286222b68f3b0",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Fun\u00e7\u00e3o Base de Constru\u00e7\u00e3o do Modelo (<code>.build()</code>)</strong></span>\n<div class=\"language-teratermmacro highlight\"><pre><span></span><code><span class=\"nv\">Esta</span><span class=\"w\"> </span><span class=\"nv\">c</span>\u00e9<span class=\"nv\">lula</span><span class=\"w\"> </span><span class=\"nv\">encapsula</span><span class=\"w\"> </span><span class=\"nv\">a</span><span class=\"w\"> </span><span class=\"nv\">l</span>\u00f3<span class=\"nv\">gica</span><span class=\"w\"> </span><span class=\"nv\">principal</span><span class=\"w\"> </span><span class=\"nv\">de</span><span class=\"w\"> </span><span class=\"nv\">cria</span>\u00e7\u00e3<span class=\"nv\">o</span><span class=\"w\"> </span><span class=\"k\">do</span><span class=\"w\"> </span><span class=\"nv\">hor</span>\u00e1<span class=\"nv\">rio</span><span class=\"w\"> </span><span class=\"nv\">na</span><span class=\"w\"> </span><span class=\"nv\">fun</span>\u00e7\u00e3<span class=\"nv\">o</span><span class=\"w\"> </span>`<span class=\"nv\">build</span><span class=\"ss\">(</span><span class=\"nv\">unavailable</span><span class=\"ss\">)</span>`.<span class=\"w\"> </span>\n<span class=\"nv\">Adicionamos</span><span class=\"w\"> </span><span class=\"nv\">rigorosamente</span><span class=\"w\"> </span><span class=\"nv\">todas</span><span class=\"w\"> </span><span class=\"nv\">as</span><span class=\"w\"> </span><span class=\"nv\">restri</span>\u00e7\u00f5<span class=\"nv\">es</span><span class=\"w\"> </span><span class=\"nv\">estruturais</span><span class=\"w\"> </span><span class=\"nv\">imperativas</span><span class=\"w\"> </span><span class=\"nv\">ao</span><span class=\"w\"> </span><span class=\"nv\">modelo</span><span class=\"w\"> </span><span class=\"ss\">(</span><span class=\"nv\">R1</span><span class=\"o\">-</span><span class=\"nv\">R7</span><span class=\"ss\">)</span>:\n</code></pre></div>\n<ol>\n<li>Impedir a sobreposi\u00e7\u00e3o de aulas: cada turma tem, no m\u00e1ximo, uma aula por cada per\u00edodo;</li>\n<li>Garantir o cumprimento exato da carga hor\u00e1ria semanal definida para cada disciplina;</li>\n<li>Assegurar a correta distribui\u00e7\u00e3o das aulas ao longo da semana, impondo tamb\u00e9m que as aulas de per\u00edodo duplo ocorrem obrigatoriamente em tempos consecutivos no mesmo dia;</li>\n<li>Prevenir sobreposi\u00e7\u00f5es para os docentes (n\u00e3o podem lecionar a turmas distintas no mesmo instante) e impor os seus per\u00edodos de indisponibilidade;</li>\n<li>Respeitar a capacidade limite das salas face \u00e0 lota\u00e7\u00e3o necess\u00e1ria e garantir que as disciplinas ocupam apenas os tipos de sala apropriados.</li>\n</ol></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Fun\u00e7\u00e3o Base de Constru\u00e7\u00e3o do Modelo (<code>.build()</code>)</strong></span>\n<div class=\"language-teratermmacro highlight\"><pre><span></span><code><span class=\"nv\">Esta</span><span class=\"w\"> </span><span class=\"nv\">c</span>\u00e9<span class=\"nv\">lula</span><span class=\"w\"> </span><span class=\"nv\">encapsula</span><span class=\"w\"> </span><span class=\"nv\">a</span><span class=\"w\"> </span><span class=\"nv\">l</span>\u00f3<span class=\"nv\">gica</span><span class=\"w\"> </span><span class=\"nv\">principal</span><span class=\"w\"> </span><span class=\"nv\">de</span><span class=\"w\"> </span><span class=\"nv\">cria</span>\u00e7\u00e3<span class=\"nv\">o</span><span class=\"w\"> </span><span class=\"k\">do</span><span class=\"w\"> </span><span class=\"nv\">hor</span>\u00e1<span class=\"nv\">rio</span><span class=\"w\"> </span><span class=\"nv\">na</span><span class=\"w\"> </span><span class=\"nv\">fun</span>\u00e7\u00e3<span class=\"nv\">o</span><span class=\"w\"> </span>`<span class=\"nv\">build</span><span class=\"ss\">(</span><span class=\"nv\">unavailable</span><span class=\"ss\">)</span>`.<span class=\"w\"> </span>\n<span class=\"nv\">Adicionamos</span><span class=\"w\"> </span><span class=\"nv\">rigorosamente</span><span class=\"w\"> </span><span class=\"nv\">todas</span><span class=\"w\"> </span><span class=\"nv\">as</span><span class=\"w\"> </span><span class=\"nv\">restri</span>\u00e7\u00f5<span class=\"nv\">es</span><span class=\"w\"> </span><span class=\"nv\">estruturais</span><span class=\"w\"> </span><span class=\"nv\">imperativas</span><span class=\"w\"> </span><span class=\"nv\">ao</span><span class=\"w\"> </span><span class=\"nv\">modelo</span><span class=\"w\"> </span><span class=\"ss\">(</span><span class=\"nv\">R1</span><span class=\"o\">-</span><span class=\"nv\">R7</span><span class=\"ss\">)</span>:\n</code></pre></div>\n<ol>\n<li>Impedir a sobreposi\u00e7\u00e3o de aulas: cada turma tem, no m\u00e1ximo, uma aula por cada per\u00edodo;</li>\n<li>Garantir o cumprimento exato da carga hor\u00e1ria semanal definida para cada disciplina;</li>\n<li>Assegurar a correta distribui\u00e7\u00e3o das aulas ao longo da semana, impondo tamb\u00e9m que as aulas de per\u00edodo duplo ocorrem obrigatoriamente em tempos consecutivos no mesmo dia;</li>\n<li>Prevenir sobreposi\u00e7\u00f5es para os docentes (n\u00e3o podem lecionar a turmas distintas no mesmo instante) e impor os seus per\u00edodos de indisponibilidade;</li>\n<li>Respeitar a capacidade limite das salas face \u00e0 lota\u00e7\u00e3o necess\u00e1ria e garantir que as disciplinas ocupam apenas os tipos de sala apropriados.</li>\n</ol>\n<hr />\n<h2 id=\"r1-r7\">R1 -&gt; R7</h2>\n<ul>\n<li><strong>R1.</strong> Uma turma n\u00e3o pode ter duas aulas em simult\u00e2neo.</li>\n<li><strong>R2.</strong> Cada disciplina cumpre <em>exatamente</em> a carga semanal\n  definida em <code>disciplinas.csv</code>, para cada turma.</li>\n<li><strong>R3.</strong> No m\u00e1ximo uma aula da mesma disciplina por dia, por\n  turma \u2014 exceto disciplinas de duplo per\u00edodo (ver R4), em que o\n  bloco de 2 tempos conta como uma s\u00f3 ocorr\u00eancia nesse dia.</li>\n<li><strong>R4.</strong> Disciplinas marcadas <code>duplo_periodo=sim</code> s\u00f3 podem ser\n  dadas em blocos de 2 tempos consecutivos, no mesmo dia (nunca um\n  tempo isolado).</li>\n<li><strong>R5.</strong> Um professor n\u00e3o pode dar duas aulas em simult\u00e2neo, mesmo\n  que sejam a turmas ou disciplinas diferentes.</li>\n<li><strong>R6.</strong> Um professor s\u00f3 pode dar aulas nos tempos em que est\u00e1\n  dispon\u00edvel (<code>disponibilidade_excecoes.csv</code>).</li>\n<li><strong>R7.</strong> Cada aula ocupa uma sala. Disciplinas com <code>sala_especial</code>\n  s\u00f3 podem usar salas desse tipo; as restantes usam salas\n  <code>normal</code>. Em nenhum tempo o n\u00famero de aulas a decorrer num tipo\n  de sala pode exceder a <code>quantidade</code> desse tipo definida em\n  <code>salas.csv</code>.</li>\n</ul></span>"
           }
         }
       ],
@@ -268,7 +268,7 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "OPTIMAL 33.0 0.012148\n34\n1\n{(('7\u00baB', 'Sex', 4), 'Matem\u00e1tica')}\n",
+          "text": "OPTIMAL 33.0 0.012533\n34\n1\n{(('7\u00baB', 'Sex', 4), 'Matem\u00e1tica')}\n",
           "mimetype": "text/plain"
         }
       ]
@@ -314,7 +314,7 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "OPTIMAL 0.0 0.024338000000000002\n34\n30\n",
+          "text": "OPTIMAL 0.0 0.024668000000000002\n34\n30\n",
           "mimetype": "text/plain"
         }
       ]
@@ -380,7 +380,7 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "OPTIMAL 0.0 0.020210000000000002\n34\n30\n",
+          "text": "OPTIMAL 0.0 0.025722000000000002\n34\n30\n",
           "mimetype": "text/plain"
         }
       ]

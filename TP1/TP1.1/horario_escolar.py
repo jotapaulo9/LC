@@ -222,6 +222,28 @@ def _(mo):
     3. Assegurar a correta distribuição das aulas ao longo da semana, impondo também que as aulas de período duplo ocorrem obrigatoriamente em tempos consecutivos no mesmo dia;
     4. Prevenir sobreposições para os docentes (não podem lecionar a turmas distintas no mesmo instante) e impor os seus períodos de indisponibilidade;
     5. Respeitar a capacidade limite das salas face à lotação necessária e garantir que as disciplinas ocupam apenas os tipos de sala apropriados.
+
+    ---
+    ## R1 -> R7
+
+    - **R1.** Uma turma não pode ter duas aulas em simultâneo.
+    - **R2.** Cada disciplina cumpre *exatamente* a carga semanal
+      definida em `disciplinas.csv`, para cada turma.
+    - **R3.** No máximo uma aula da mesma disciplina por dia, por
+      turma — exceto disciplinas de duplo período (ver R4), em que o
+      bloco de 2 tempos conta como uma só ocorrência nesse dia.
+    - **R4.** Disciplinas marcadas `duplo_periodo=sim` só podem ser
+      dadas em blocos de 2 tempos consecutivos, no mesmo dia (nunca um
+      tempo isolado).
+    - **R5.** Um professor não pode dar duas aulas em simultâneo, mesmo
+      que sejam a turmas ou disciplinas diferentes.
+    - **R6.** Um professor só pode dar aulas nos tempos em que está
+      disponível (`disponibilidade_excecoes.csv`).
+    - **R7.** Cada aula ocupa uma sala. Disciplinas com `sala_especial`
+      só podem usar salas desse tipo; as restantes usam salas
+      `normal`. Em nenhum tempo o número de aulas a decorrer num tipo
+      de sala pode exceder a `quantidade` desse tipo definida em
+      `salas.csv`.
     """)
     return
 
