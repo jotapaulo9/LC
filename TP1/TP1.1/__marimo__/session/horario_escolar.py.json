@@ -20,8 +20,15 @@
     },
     {
       "id": "MJUe",
-      "code_hash": "a3360e65533f4e76571de3d6df68b500",
-      "outputs": [],
+      "code_hash": "97f492090d68633dff2ed36401bf31a6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -40,7 +47,14 @@
     {
       "id": "bkHC",
       "code_hash": "b045fc51f6df6e9d14fa3263afaee826",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
+          "traceback": null
+        }
+      ],
       "console": []
     },
     {
@@ -58,8 +72,15 @@
     },
     {
       "id": "PKri",
-      "code_hash": "005443ae8a4b8b4cc21ce9af8e4db8e9",
-      "outputs": [],
+      "code_hash": "5514391c55696ac4b58adad056868438",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
+          "traceback": null
+        }
+      ],
       "console": []
     },
     {
@@ -78,7 +99,14 @@
     {
       "id": "SFPL",
       "code_hash": "4d82022b22f14c51a1caab60c3695b7c",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "cycle",
+          "evalue": "This cell is in a cycle",
+          "traceback": []
+        }
+      ],
       "console": []
     },
     {
@@ -97,7 +125,14 @@
     {
       "id": "RGSE",
       "code_hash": "e90e3b090f7feac5b606fddec29ce110",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
+          "traceback": null
+        }
+      ],
       "console": []
     },
     {
@@ -116,8 +151,22 @@
     {
       "id": "emfo",
       "code_hash": "6d5339efc6b7b63102fb4f7fd58c459a",
-      "outputs": [],
-      "console": []
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "Name `model` is not defined. It was expected to be defined in ",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/bp/lkw50c9s0xbd76yk1fybl6b00000gn/T/marimo_1334/__marimo__cell_emfo_.py\"</span>, line <span class=\"m\">6</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">model</span><span class=\"o\">.</span><span class=\"n\">Add</span><span class=\"p\">(</span><span class=\"nb\">sum</span><span class=\"p\">(</span><span class=\"n\">x</span><span class=\"p\">[</span><span class=\"n\">_c</span><span class=\"p\">,</span><span class=\"n\">_s</span><span class=\"p\">,</span><span class=\"n\">_d</span><span class=\"p\">,</span><span class=\"n\">_p</span><span class=\"p\">]</span> <span class=\"k\">for</span> <span class=\"n\">_c</span> <span class=\"ow\">in</span> <span class=\"n\">classes</span><span class=\"p\">[</span><span class=\"s2\">\"turma\"</span><span class=\"p\">]</span> <span class=\"k\">for</span> <span class=\"n\">_s</span> <span class=\"ow\">in</span> <span class=\"n\">subjects</span><span class=\"p\">[</span><span class=\"s2\">\"disciplina\"</span><span class=\"p\">]</span> <span class=\"k\">if</span> <span class=\"n\">_t</span> <span class=\"o\">==</span> <span class=\"n\">teachers</span><span class=\"p\">[</span><span class=\"n\">_s</span><span class=\"p\">])</span> <span class=\"o\">&lt;=</span> <span class=\"mi\">1</span><span class=\"p\">)</span>\n<span class=\"w\">    </span><span class=\"pm\">^^^^^</span>\n<span class=\"gr\">NameError</span>: <span class=\"n\">name 'model' is not defined</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
     },
     {
       "id": "Hstk",
@@ -135,7 +184,14 @@
     {
       "id": "nWHF",
       "code_hash": "5696451ff7adfc6816f73bafc1b488a6",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "cycle",
+          "evalue": "This cell is in a cycle",
+          "traceback": []
+        }
+      ],
       "console": []
     },
     {
@@ -153,8 +209,15 @@
     },
     {
       "id": "ZHCJ",
-      "code_hash": "7d16b33bf26cdfb3a0110032b52b210a",
-      "outputs": [],
+      "code_hash": "b932ac8aeb2ca62702e5c0368c6e6b27",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "cycle",
+          "evalue": "This cell is in a cycle",
+          "traceback": []
+        }
+      ],
       "console": []
     },
     {
@@ -172,26 +235,137 @@
     },
     {
       "id": "qnkX",
-      "code_hash": "27d9e61eae6979c0ca12ccabdc076fe9",
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "DnEU",
-      "code_hash": null,
-      "outputs": [],
-      "console": []
-    },
-    {
-      "id": "Vxnm",
-      "code_hash": null,
-      "outputs": [],
+      "code_hash": "9ef716041473cba77c684a58a6359983",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "syntax",
+          "evalue": "line 39\n    for _p in period:\n    ^^^\nIndentationError: expected an indented block after 'for' statement on line 38\n",
+          "traceback": []
+        }
+      ],
       "console": []
     },
     {
       "id": "TqIu",
-      "code_hash": "0621e70b217069fafa699f744547cdae",
-      "outputs": [],
+      "code_hash": "57ef6a0c48087f6e304b113508f3700a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>(R9)</strong></span>\n<ol>\n<li>Gerar um hor\u00e1rio v\u00e1lido <code>H0</code> a partir de um conjunto de\n   dados inicial (<code>dados/</code>).</li>\n<li>Dada uma pequena altera\u00e7\u00e3o aos recursos \u2014 por exemplo, a\n   que est\u00e1 em <code>dados_v2/</code> (o Prof. Eduardo continua limitado\n   \u00e0s tardes, mas a Prof. Ana passa a estar indispon\u00edvel \u00e0s\n   sextas-feiras nos 2 \u00faltimos tempos) \u2014 gerar um novo hor\u00e1rio\n   v\u00e1lido <code>H1</code> que respeite R1\u2013R8 com os novos dados.</li>\n<li><code>H1</code> deve ser produzido <strong>de forma eficiente</strong> (mais r\u00e1pido\n   do que resolver <code>H1</code> do zero, sem usar <code>H0</code>) e <strong>minimizando\n   o n\u00famero de aulas que mudam de tempo/sala</strong> entre <code>H0</code> e\n   <code>H1</code> \u2014 <code>H1</code> n\u00e3o precisa de ser \u00f3timo em rela\u00e7\u00e3o a O1.</li>\n</ol></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Vxnm",
+      "code_hash": "50112dcf7dcd574bd77c16b913de35f6",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "eyJk",
+      "code_hash": "20d2a6212bf79cbe4b396ed581a6da6b",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "cycle",
+          "evalue": "This cell is in a cycle",
+          "traceback": []
+        },
+        {
+          "type": "error",
+          "ename": "cycle",
+          "evalue": "This cell is in a cycle",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Xzjq",
+      "code_hash": "d62e3c69af587ffc763a621a81257ba0",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "cycle",
+          "evalue": "This cell is in a cycle",
+          "traceback": []
+        },
+        {
+          "type": "error",
+          "ename": "cycle",
+          "evalue": "This cell is in a cycle",
+          "traceback": []
+        },
+        {
+          "type": "error",
+          "ename": "cycle",
+          "evalue": "This cell is in a cycle",
+          "traceback": []
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "piza",
+      "code_hash": "c20850e8bd36e7b7f6984db047506d5b",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PeVa",
+      "code_hash": "89e7982a263378c29b60f1017db8a7af",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "UxoQ",
+      "code_hash": "0610e4565ba36cdc345dbd21d14ec07f",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
+          "traceback": null
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "135e52ab801a5dab7a77cbbe302e5fe0",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
+          "traceback": null
+        }
+      ],
       "console": []
     }
   ]

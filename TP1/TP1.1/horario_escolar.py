@@ -44,15 +44,6 @@ def _():
     period = range(1,6)
     workload = dict(zip(subjects["disciplina"], subjects["carga_semanal"]))
 
-
-    model = cp_model.CpModel()
-    x = {} #declaracao de x
-    for _c in classes["turma"]:
-        for _s in subjects["disciplina"]:
-            for _d in days:
-                for _p in period:
-                    x[_c,_s,_d,_p] = model.NewBoolVar(f"_{_c}_{_s}_{_d}_{_p}")
-    print(len(x))
     return (
         Path,
         availability,
@@ -61,12 +52,10 @@ def _():
         crooms,
         days,
         mo,
-        model,
         pd,
         period,
         subjects,
         workload,
-        x,
     )
 
 
@@ -102,7 +91,7 @@ def _(classes, days, model, period, subjects, workload, x):
     for _c in classes["turma"]:
         for _s in subjects["disciplina"]:
             model.Add(sum(x[_c, _s, _d, _p] for _d in days for _p in period) == workload[_s])
-    
+
     return
 
 
@@ -224,8 +213,7 @@ def _(classes, crooms, days, model, pd, period, subjects, x):
         for _d in days:
             for _p in period:
                  model.Add(sum(x[_c,_s,_d,_p] for _c in classes["turma"] for _s in subjects["disciplina"] if typo[_s] == _r) <= capacity[_r]) 
-
-    return (typo,)
+    return capacity, typo
 
 
 @app.cell(hide_code=True)
@@ -238,45 +226,51 @@ def _(mo):
     return
 
 
-@app.cell
-def _(classes, days, model, period, subjects, teachers, teachersList, x):
+app._unparsable_cell(
+    r"""
+    def addholes(model, x):
+
     #para tentar minimizar o numero de buracos para um determinado professor temos de, primeiramente, ter uma noção do período em que um professor não tem aulas
-    first = {} #primeira aula lecionada num determinado dia para um dado professor
-    for _t in teachersList:
-        for _d in days:
-            first[_t,_d] = model.NewIntVar(min(period), max(period), f"first_{_t}_{_d}")
-        
-    last = {} #ultima
-    for _t in teachersList:
-        for _d in days:
-            last[_t,_d] = model.NewIntVar(min(period), max(period), f"last_{_t}_{_d}")
+        first = {} #primeira aula lecionada num determinado dia para um dado professor
+        for _t in teachersList:
+            for _d in days:
+                first[_t,_d] = model.NewIntVar(min(period), max(period), f"first_{_t}_{_d}")
+    
+        last = {} #ultima
+        for _t in teachersList:
+            for _d in days:
+                last[_t,_d] = model.NewIntVar(min(period), max(period), f"last_{_t}_{_d}")
 
-    holes = {} #intervao entre aulas (buraco)
-    for _t in teachersList:
-        for _d in days:
-            holes[_t,_d] = model.NewIntVar(0,len(period), f"holes_{_t}_{_d}") #não vou colocar limite fixo, len(period) fica mais versátil
+        holes = {} #intervao entre aulas (buraco)
+        for _t in teachersList:
+            for _d in days:
+                holes[_t,_d] = model.NewIntVar(0,len(period), f"holes_{_t}_{_d}") #não vou colocar limite fixo, len(period) fica mais versátil
 
-    w = {} #bool var para verificacao da disponibilidade do professor 
-    for _t in teachersList:
-        for _d in days:
-            for _p in period:
-                w[_t,_d,_p] = model.NewBoolVar(f"_{_t},_{_d}, _{_p}")
+        w = {} #bool var para verificacao da disponibilidade do professor 
+        for _t in teachersList:
+            for _d in days:
+                for _p in period:
+                    w[_t,_d,_p] = model.NewBoolVar(f"_{_t},_{_d}, _{_p}")
 
-
-    for _t in teachersList: 
-        for _d in days:
-            for _p in period:
-                model.Add(first[_t,_d] <= _p).OnlyEnforceIf(w[_t,_d,_p]) #enquadramento de aula entre os limites de períodos
-                model.Add(last[_t,_d] >= _p).OnlyEnforceIf(w[_t,_d,_p])
-            model.Add(holes[_t,_d] >= last[_t,_d] - first[_t,_d] + 1 - sum(w[_t,_d,_p] for _p in period)) #os buracos sao calculados pelo last e first e também com w (número de aulas por dia para um dado professor. é incrementado para cada período dando 1 ou 0 se tiver aula ou não respetivamente)
-    model.Minimize(sum(holes[_t,_d] for _t in teachersList for _d in days))
+        model.Minimize(sum(holes[_t,_d] for _t in teachersList for _d in days))
 
 
-    for _t in teachersList:
-        for _d in days:
+
+        for _t in teachersList: 
+            for _d in days:
+                for _p in period:
+                    model.Add(first[_t,_d] <= _p).OnlyEnforceIf(w[_t,_d,_p]) #enquadramento de aula entre os limites de períodos
+                    model.Add(last[_t,_d] >= _p).OnlyEnforceIf(w[_t,_d,_p])
+                model.Add(holes[_t,_d] >= last[_t,_d] - first[_t,_d] + 1 - sum(w[_t,_d,_p] for _p in period)) #os buracos sao calculados pelo last e first e também com w (número de aulas por dia para um dado professor. é incrementado para cada período dando 1 ou 0 se tiver aula ou não respetivamente)
+
+
+        for _t in teachersList:
+            for _d in days:
             for _p in period:
                 model.Add(sum(x[_c,_s,_d,_p] for _c in classes["turma"] for _s in subjects["disciplina"] if teachers[_s] == _t) == w[_t,_d,_p])
-    return
+    """,
+    name="_"
+)
 
 
 @app.cell(hide_code=True)
@@ -299,8 +293,7 @@ def _(mo):
 
 
 @app.cell
-def _(Path, horario, pd, teachers, unavailable):
-    H0 = dict(horario)
+def _(H0, Path, pd, teachers, unavailable):
     pathway2 = Path("dados_v2")
     availability2 = pd.read_csv(pathway2/"disponibilidade_excecoes.csv")
     unavailable2 = set(zip(availability2["professor"], availability2["dia"], availability2["periodo"])) 
@@ -315,11 +308,108 @@ def _(Path, horario, pd, teachers, unavailable):
     print(("Prof. Ana", "Sex", 4) in unavailable2)
     print(len(unavailable2))
     print(len(unavailable))
-    return
+    return (unavailable2,)
 
 
 @app.cell
-def _(cp_model, days, mo, model, pd, period, teachers, typo, x):
+def _(
+    capacity,
+    classes,
+    cp_model,
+    crooms,
+    days,
+    doubleP,
+    period,
+    subjects,
+    teachers,
+    teachersList,
+    typo,
+    workload,
+):
+    def build(unavailable):
+
+        model = cp_model.CpModel()
+        x = {} #declaracao de x
+        for _c in classes["turma"]:
+            for _s in subjects["disciplina"]:
+                for _d in days:
+                    for _p in period:
+                        x[_c,_s,_d,_p] = model.NewBoolVar(f"_{_c}_{_s}_{_d}_{_p}")
+
+        for _c in classes["turma"]:
+            for _d in days:
+                for _p in period:
+                    model.Add(sum(x[_c,_s,_d,_p] for _s in subjects["disciplina"]) <= 1)
+    
+        for _c in classes["turma"]:
+            for _s in subjects["disciplina"]:
+                model.Add(sum(x[_c, _s, _d, _p] for _d in days for _p in period) == workload[_s])
+
+
+        for _c in classes["turma"]:
+            for _s in subjects["disciplina"]:
+                if not doubleP[_s]:
+                    for _d in days:
+                        model.Add(sum(x[_c, _s, _d, _p] for _p in period) <= 1)
+
+    
+        for _c in classes["turma"]:
+            for _s in subjects["disciplina"]:
+                if doubleP[_s]:
+                    for _d in days:
+                        model.Add(sum(x[_c,_s,_d,_p] for _p in period) <= 2)
+                        for _p in period:
+                            _consecutive = []
+                            if _p - 1 in period:
+                                _consecutive.append(x[_c,_s,_d,_p - 1])
+                            if _p + 1 in period:
+                                _consecutive.append(x[_c,_s,_d,_p + 1])
+                            model.Add(x[_c,_s,_d,_p] <= sum(_consecutive))
+
+
+        for _t in teachersList:
+            for _d in days:
+                for _p in period:
+                    model.Add(sum(x[_c,_s,_d,_p] for _c in classes["turma"] for _s in subjects["disciplina"] if _t == teachers[_s]) <= 1)
+
+        for _c in classes["turma"]:
+            for _s in subjects["disciplina"]:
+                for _d in days:
+                    for _p in period:
+                        if (teachers[_s], _d, _p) in unavailable:
+                            model.Add(x[_c,_s,_d,_p] == 0)
+
+        for _r in crooms["sala"]:
+            for _d in days:
+                for _p in period:
+                     model.Add(sum(x[_c,_s,_d,_p] for _c in classes["turma"] for _s in subjects["disciplina"] if typo[_s] == _r) <= capacity[_r]) 
+    
+        return model, x
+
+
+    return (build,)
+
+
+@app.cell
+def _(addholes, build, unavailable):
+    model, x = build(unavailable)
+    addholes(model, x)
+    return model, x
+
+
+@app.cell
+def _(H0, build, unavailable2):
+    model1, x1 = build(unavailable2)
+    kept = []
+    for (_c, _d, _p), _s in H0.items():
+        kept.append(x1[_c, _s, _d, _p])
+
+    model1.Maximize(sum(kept))
+    return model1, x1
+
+
+@app.cell
+def _(cp_model, model, x):
     solver = cp_model.CpSolver()
     status = solver.Solve(model)
     print(solver.StatusName(status))
@@ -328,8 +418,31 @@ def _(cp_model, days, mo, model, pd, period, teachers, typo, x):
     for (_c, _s, _d, _p), var in x.items():
         if solver.Value(var) == 1:
             horario[_c, _d, _p] = _s
+    H0 = dict(horario)
     print(len(horario))
 
+    return (H0,)
+
+
+@app.cell
+def _(H0, cp_model, model1, x1):
+    solver1 = cp_model.CpSolver()
+    status1 = solver1.Solve(model1)
+    print(solver1.StatusName(status1), solver1.ObjectiveValue(), solver1.WallTime())
+
+    horario2 = {}
+    for (_c,_s,_d,_p), var1 in x1.items():
+        if solver1.Value(var1) == 1:
+            horario2[_c,_d,_p] = _s
+    H1 = dict(horario2)
+    print(len(horario2))
+    changes = set(H0.items()) - set(H1.items())
+    print(len(changes))
+    return (solver1,)
+
+
+@app.cell
+def _(days, mo, pd, period, solver1, teachers, typo, x1):
 
     def show(solver, x, days, periods, teachers, typo): #feito pelo Claude
         turmas = list(dict.fromkeys(k[0] for k in x))
@@ -344,8 +457,9 @@ def _(cp_model, days, mo, model, pd, period, teachers, typo, x):
             blocos += [mo.md(f"### {turma}"), mo.Html(tab.to_html(escape=False))]
         return mo.vstack(blocos)
 
-    show(solver, x, days, period, teachers, typo)
-    return (horario,)
+    show(solver1, x1, days, period, teachers, typo)
+
+    return
 
 
 if __name__ == "__main__":
