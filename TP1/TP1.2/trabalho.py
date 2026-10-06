@@ -791,5 +791,25 @@ def _(grelha, pistas, resolver_sudoku, validar, verificar_add):
     return
 
 
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ## Utilização de LMM
+
+    Neste trabalho foi usado um modelo de linguagem llm como apoio.
+    Foi usado para:
+
+    - explicar conceitos (CSP, CP-SAT, Python e Marimo);
+    - sugerir e rever o código de cada requisito;
+    - verificar que o notebook corre e cumpre o enunciado;
+    - ajudar a compreender e a explicar cada parte do código.
+
+    Todo o código foi lido, testado e compreendido pelo grupo antes de ser entregue.
+
+    https://share.gemini.google/msahl6WOkk9a
+    """)
+    return
+
+
 if __name__ == "__main__":
     app.run()
