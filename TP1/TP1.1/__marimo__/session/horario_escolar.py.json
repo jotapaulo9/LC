@@ -32,65 +32,13 @@
       "console": []
     },
     {
-      "id": "vblA",
-      "code_hash": "68cfe6c6fa3e15f03c2c28054c6dae7b",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R1)</strong> Uma turma n\u00e3o pode ter duas aulas em simult\u00e2neo, pelo que:</span></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "bkHC",
-      "code_hash": "b045fc51f6df6e9d14fa3263afaee826",
-      "outputs": [
-        {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
-          "traceback": null
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "lEQa",
-      "code_hash": "a4e15d233f76387c13dcceb2dd36d2f3",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R2)</strong> Cada disciplina cumpre <em>exatamente</em> a carga semanal</span></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "PKri",
-      "code_hash": "5514391c55696ac4b58adad056868438",
-      "outputs": [
-        {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
-          "traceback": null
-        }
-      ],
-      "console": []
-    },
-    {
       "id": "Xref",
-      "code_hash": "bd5808187296bdb2f7a81764c842e46a",
+      "code_hash": "babe5cdb43fba0fd22a894fb14fe9734",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R3)</strong> No m\u00e1ximo uma aula da mesma disciplina por dia, por\nturma \u2014 exceto disciplinas de duplo per\u00edodo (ver R4), em que o\nbloco de 2 tempos conta como uma s\u00f3 ocorr\u00eancia nesse dia.</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\">Declara\u00e7\u00e3o do dicion\u00e1rio das disciplinas que ocupam per\u00edodos/blocos duplos, vari\u00e1veis professor e lista de professores, set para professores indispon\u00edveis, capacidade e tipo de sala.</span></span>"
           }
         }
       ],
@@ -98,51 +46,12 @@
     },
     {
       "id": "SFPL",
-      "code_hash": "4d82022b22f14c51a1caab60c3695b7c",
-      "outputs": [
-        {
-          "type": "error",
-          "ename": "cycle",
-          "evalue": "This cell is in a cycle",
-          "traceback": []
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "BYtC",
-      "code_hash": "07352fd0edb157d19ca20002f90c9fc9",
+      "code_hash": "c811c39781a4635166df629ec62112e4",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R4)</strong> Disciplinas marcadas <code>duplo_period=sim</code> s\u00f3 podem ser\n  dadas em blocos de 2 tempos consecutivos, no mesmo dia (nunca um\n  tempo isolado).</span></span>"
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "RGSE",
-      "code_hash": "e90e3b090f7feac5b606fddec29ce110",
-      "outputs": [
-        {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
-          "traceback": null
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "Kclp",
-      "code_hash": "c89ac93bcc5d519571bf8de654fca5d9",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R5)</strong> Um professor n\u00e3o pode dar duas aulas em simult\u00e2neo, mesmo\n  que sejam a turmas ou disciplinas diferentes.</span></span>"
+            "text/plain": ""
           }
         }
       ],
@@ -150,32 +59,12 @@
     },
     {
       "id": "emfo",
-      "code_hash": "6d5339efc6b7b63102fb4f7fd58c459a",
-      "outputs": [
-        {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "Name `model` is not defined. It was expected to be defined in ",
-          "traceback": null
-        }
-      ],
-      "console": [
-        {
-          "type": "stream",
-          "name": "stderr",
-          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/bp/lkw50c9s0xbd76yk1fybl6b00000gn/T/marimo_1334/__marimo__cell_emfo_.py\"</span>, line <span class=\"m\">6</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">model</span><span class=\"o\">.</span><span class=\"n\">Add</span><span class=\"p\">(</span><span class=\"nb\">sum</span><span class=\"p\">(</span><span class=\"n\">x</span><span class=\"p\">[</span><span class=\"n\">_c</span><span class=\"p\">,</span><span class=\"n\">_s</span><span class=\"p\">,</span><span class=\"n\">_d</span><span class=\"p\">,</span><span class=\"n\">_p</span><span class=\"p\">]</span> <span class=\"k\">for</span> <span class=\"n\">_c</span> <span class=\"ow\">in</span> <span class=\"n\">classes</span><span class=\"p\">[</span><span class=\"s2\">\"turma\"</span><span class=\"p\">]</span> <span class=\"k\">for</span> <span class=\"n\">_s</span> <span class=\"ow\">in</span> <span class=\"n\">subjects</span><span class=\"p\">[</span><span class=\"s2\">\"disciplina\"</span><span class=\"p\">]</span> <span class=\"k\">if</span> <span class=\"n\">_t</span> <span class=\"o\">==</span> <span class=\"n\">teachers</span><span class=\"p\">[</span><span class=\"n\">_s</span><span class=\"p\">])</span> <span class=\"o\">&lt;=</span> <span class=\"mi\">1</span><span class=\"p\">)</span>\n<span class=\"w\">    </span><span class=\"pm\">^^^^^</span>\n<span class=\"gr\">NameError</span>: <span class=\"n\">name 'model' is not defined</span>\n</pre></div>\n</span>",
-          "mimetype": "application/vnd.marimo+traceback"
-        }
-      ]
-    },
-    {
-      "id": "Hstk",
-      "code_hash": "063a03ee26c2d86f9416498fa1a24725",
+      "code_hash": "16656615b44f4e930e639a15a7d12117",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R6)</strong> Um professor s\u00f3 pode dar aulas nos tempos em que est\u00e1\n  dispon\u00edvel (<code>disponibilidade_excecoes.csv</code>).</span></span>"
+            "text/plain": ""
           }
         }
       ],
@@ -183,25 +72,12 @@
     },
     {
       "id": "nWHF",
-      "code_hash": "5696451ff7adfc6816f73bafc1b488a6",
-      "outputs": [
-        {
-          "type": "error",
-          "ename": "cycle",
-          "evalue": "This cell is in a cycle",
-          "traceback": []
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "iLit",
-      "code_hash": "28d590c2ff88037c1df45a338f397d88",
+      "code_hash": "50008ffa2018f9e60a65086f32ad11bb",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(R7)</strong> Cada aula ocupa uma sala. Disciplinas com <code>sala_especial</code>\n  s\u00f3 podem usar salas desse tipo; as restantes usam salas normais</span></span>"
+            "text/plain": ""
           }
         }
       ],
@@ -209,20 +85,20 @@
     },
     {
       "id": "ZHCJ",
-      "code_hash": "b932ac8aeb2ca62702e5c0368c6e6b27",
+      "code_hash": "5922ba8757bf7440c8f909007bdbc6f4",
       "outputs": [
         {
-          "type": "error",
-          "ename": "cycle",
-          "evalue": "This cell is in a cycle",
-          "traceback": []
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
       "console": []
     },
     {
       "id": "ROlb",
-      "code_hash": "b142d64ca2dbd8869d69b05af6d3dfc1",
+      "code_hash": "a83b374ed8e30d069a144b8598d4e0b5",
       "outputs": [
         {
           "type": "data",
@@ -235,13 +111,13 @@
     },
     {
       "id": "qnkX",
-      "code_hash": "9ef716041473cba77c684a58a6359983",
+      "code_hash": "9f3b82820b1e015298906252b59bfebc",
       "outputs": [
         {
-          "type": "error",
-          "ename": "syntax",
-          "evalue": "line 39\n    for _p in period:\n    ^^^\nIndentationError: expected an indented block after 'for' statement on line 38\n",
-          "traceback": []
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
       "console": []
@@ -264,10 +140,30 @@
       "code_hash": "50112dcf7dcd574bd77c16b913de35f6",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
-          "traceback": null
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "1\nTrue\n17\n15\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "Gsbv",
+      "code_hash": "a0ccfefe01cdbd1161844d4c868b2503",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<h2 id=\"metodo-build\">M\u00e9todo .build()</h2>\n<span class=\"paragraph\">Neste m\u00e9todo est\u00e3o contidos os algoritmos de cada restri\u00e7\u00e3o</span></span>"
+          }
         }
       ],
       "console": []
@@ -277,41 +173,23 @@
       "code_hash": "20d2a6212bf79cbe4b396ed581a6da6b",
       "outputs": [
         {
-          "type": "error",
-          "ename": "cycle",
-          "evalue": "This cell is in a cycle",
-          "traceback": []
-        },
-        {
-          "type": "error",
-          "ename": "cycle",
-          "evalue": "This cell is in a cycle",
-          "traceback": []
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
       "console": []
     },
     {
       "id": "Xzjq",
-      "code_hash": "d62e3c69af587ffc763a621a81257ba0",
+      "code_hash": "1940c54b3127a1e5fe427e474341c693",
       "outputs": [
         {
-          "type": "error",
-          "ename": "cycle",
-          "evalue": "This cell is in a cycle",
-          "traceback": []
-        },
-        {
-          "type": "error",
-          "ename": "cycle",
-          "evalue": "This cell is in a cycle",
-          "traceback": []
-        },
-        {
-          "type": "error",
-          "ename": "cycle",
-          "evalue": "This cell is in a cycle",
-          "traceback": []
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
       "console": []
@@ -321,10 +199,23 @@
       "code_hash": "c20850e8bd36e7b7f6984db047506d5b",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
-          "traceback": null
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SmbL",
+      "code_hash": "c8b92d56c4b20474919897f9b27c6132",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
       "console": []
@@ -334,36 +225,70 @@
       "code_hash": "89e7982a263378c29b60f1017db8a7af",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
-          "traceback": null
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
-      "console": []
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "OPTIMAL\n34\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "UxoQ",
-      "code_hash": "0610e4565ba36cdc345dbd21d14ec07f",
+      "code_hash": "65bcf3c13abc0eb5a1fc7ea445ef80a3",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
-          "traceback": null
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
         }
       ],
-      "console": []
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "OPTIMAL 33.0 0.010593\n34\n1\n{(('7\u00baB', 'Sex', 4), 'Matem\u00e1tica')}\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "fDFf",
+      "code_hash": "947a4a6a98ffe8b944eeae9ffd26a9c6",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "OPTIMAL 0.0 0.027944\n34\n30\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "DnEU",
       "code_hash": "135e52ab801a5dab7a77cbbe302e5fe0",
       "outputs": [
         {
-          "type": "error",
-          "ename": "exception",
-          "evalue": "An ancestor raised an exception (MarimoExceptionRaisedError): ",
-          "traceback": null
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7oa\">7\u00baA</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n    </tr>\n  </tbody>\n</table><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7ob\">7\u00baB</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td></td>\n    </tr>\n  </tbody>\n</table></div>"
+          }
         }
       ],
       "console": []

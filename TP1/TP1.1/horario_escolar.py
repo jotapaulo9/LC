@@ -63,143 +63,32 @@ def _():
 def _(mo):
     mo.md(r"""
     ---
-    **(R1)** Uma turma não pode ter duas aulas em simultâneo, pelo que:
+    Declaração do dicionário das disciplinas que ocupam períodos/blocos duplos, variáveis professor e lista de professores, set para professores indisponíveis, capacidade e tipo de sala.
     """)
     return
 
 
 @app.cell
-def _(classes, days, model, period, subjects, x):
-    for _c in classes["turma"]:
-        for _d in days:
-            for _p in period:
-                model.Add(sum(x[_c,_s,_d,_p] for _s in subjects["disciplina"]) <= 1)
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ---
-    **(R2)** Cada disciplina cumpre *exatamente* a carga semanal
-    """)
-    return
-
-
-@app.cell
-def _(classes, days, model, period, subjects, workload, x):
-    for _c in classes["turma"]:
-        for _s in subjects["disciplina"]:
-            model.Add(sum(x[_c, _s, _d, _p] for _d in days for _p in period) == workload[_s])
-
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ---
-    **(R3)** No máximo uma aula da mesma disciplina por dia, por
-    turma — exceto disciplinas de duplo período (ver R4), em que o
-    bloco de 2 tempos conta como uma só ocorrência nesse dia.
-    """)
-    return
-
-
-@app.cell
-def _(classes, days, model, period, subjects, x):
+def _(subjects):
     doubleP = {s: isdouble == "sim" for s, isdouble in zip(subjects["disciplina"], subjects["duplo_periodo"])} #precisamos de uma nocao de disciplina dupla para operar sobre elas
-    for _c in classes["turma"]:
-        for _s in subjects["disciplina"]:
-            if not doubleP[_s]:
-                for _d in days:
-                    model.Add(sum(x[_c, _s, _d, _p] for _p in period) <= 1)
     return (doubleP,)
 
 
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ---
-    **(R4)** Disciplinas marcadas `duplo_period=sim` só podem ser
-      dadas em blocos de 2 tempos consecutivos, no mesmo dia (nunca um
-      tempo isolado).
-    """)
-    return
-
-
 @app.cell
-def _(classes, days, doubleP, model, period, subjects, x):
-    for _c in classes["turma"]:
-        for _s in subjects["disciplina"]:
-            if doubleP[_s]:
-                for _d in days:
-                    model.Add(sum(x[_c,_s,_d,_p] for _p in period) <= 2) # vamos restringir 2 blocos de EF por dia 
-                    for _p in period:
-                        _consecutive = []
-                        if _p - 1 in period:
-                            _consecutive.append(x[_c,_s,_d,_p - 1]) 
-                        if _p + 1 in period:
-                            _consecutive.append(x[_c,_s,_d,_p + 1])
-                        model.Add(x[_c,_s,_d,_p] <= sum(_consecutive)) # EF so pode ser colocada no horario sse tiver um bloco antes de _p ou depois 
-    return
-
-
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ---
-    **(R5)** Um professor não pode dar duas aulas em simultâneo, mesmo
-      que sejam a turmas ou disciplinas diferentes.
-    """)
-    return
-
-
-@app.cell
-def _(classes, days, model, period, subjects, x):
+def _(subjects):
     teachers = dict(zip(subjects["disciplina"], subjects["professor"]))
     teachersList = subjects["professor"].unique()
-    for _t in teachersList:
-        for _d in days:
-            for _p in period:
-                model.Add(sum(x[_c,_s,_d,_p] for _c in classes["turma"] for _s in subjects["disciplina"] if _t == teachers[_s]) <= 1)
     return teachers, teachersList
 
 
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ---
-    **(R6)** Um professor só pode dar aulas nos tempos em que está
-      disponível (`disponibilidade_excecoes.csv`).
-    """)
-    return
-
-
 @app.cell
-def _(availability, classes, days, model, period, subjects, teachers, x):
+def _(availability):
     unavailable = set(zip(availability["professor"], availability["dia"], availability["periodo"])) #definimos unavailable pois esta restricao so corre se o professor for colocado num bloco onde nao tem disponibilidade
-    for _c in classes["turma"]:
-        for _s in subjects["disciplina"]:
-            for _d in days:
-                for _p in period:
-                    if (teachers[_s], _d, _p) in unavailable:
-                        model.Add(x[_c,_s,_d,_p] == 0)
     return (unavailable,)
 
 
-@app.cell(hide_code=True)
-def _(mo):
-    mo.md(r"""
-    ---
-    **(R7)** Cada aula ocupa uma sala. Disciplinas com `sala_especial`
-      só podem usar salas desse tipo; as restantes usam salas normais
-    """)
-    return
-
-
 @app.cell
-def _(classes, crooms, days, model, pd, period, subjects, x):
+def _(crooms, pd, subjects):
     capacity = {s: int(q) for s, q in zip(crooms["sala"], crooms["quantidade"])}
     normal = crooms.loc[crooms["tipo"] == "normal", "sala"].iloc[0] #definicao de sala normal
     typo = {}
@@ -208,11 +97,6 @@ def _(classes, crooms, days, model, pd, period, subjects, x):
             typo[_s] = normal
         else:
             typo[_s] = _e
-
-    for _r in crooms["sala"]:
-        for _d in days:
-            for _p in period:
-                 model.Add(sum(x[_c,_s,_d,_p] for _c in classes["turma"] for _s in subjects["disciplina"] if typo[_s] == _r) <= capacity[_r]) 
     return capacity, typo
 
 
@@ -226,9 +110,9 @@ def _(mo):
     return
 
 
-app._unparsable_cell(
-    r"""
-    def addholes(model, x):
+@app.cell
+def _(classes, days, period, subjects, teachers, teachersList):
+    def manageHoles(model, x):
 
     #para tentar minimizar o numero de buracos para um determinado professor temos de, primeiramente, ter uma noção do período em que um professor não tem aulas
         first = {} #primeira aula lecionada num determinado dia para um dado professor
@@ -266,11 +150,10 @@ app._unparsable_cell(
 
         for _t in teachersList:
             for _d in days:
-            for _p in period:
-                model.Add(sum(x[_c,_s,_d,_p] for _c in classes["turma"] for _s in subjects["disciplina"] if teachers[_s] == _t) == w[_t,_d,_p])
-    """,
-    name="_"
-)
+                for _p in period:
+                    model.Add(sum(x[_c,_s,_d,_p] for _c in classes["turma"] for _s in subjects["disciplina"] if teachers[_s] == _t) == w[_t,_d,_p])
+
+    return (manageHoles,)
 
 
 @app.cell(hide_code=True)
@@ -309,6 +192,18 @@ def _(H0, Path, pd, teachers, unavailable):
     print(len(unavailable2))
     print(len(unavailable))
     return (unavailable2,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ---
+
+    ## Método .build() ##
+
+    Neste método estão contidos os algoritmos de cada restrição
+    """)
+    return
 
 
 @app.cell
@@ -391,9 +286,9 @@ def _(
 
 
 @app.cell
-def _(addholes, build, unavailable):
+def _(build, manageHoles, unavailable):
     model, x = build(unavailable)
-    addholes(model, x)
+    manageHoles(model, x)
     return model, x
 
 
@@ -406,6 +301,13 @@ def _(H0, build, unavailable2):
 
     model1.Maximize(sum(kept))
     return model1, x1
+
+
+@app.cell
+def _(build, manageHoles, unavailable2):
+    model2, x2 = build(unavailable2)
+    manageHoles(model2, x2)
+    return model2, x2
 
 
 @app.cell
@@ -430,15 +332,32 @@ def _(H0, cp_model, model1, x1):
     status1 = solver1.Solve(model1)
     print(solver1.StatusName(status1), solver1.ObjectiveValue(), solver1.WallTime())
 
-    horario2 = {}
+    horario1 = {}
     for (_c,_s,_d,_p), var1 in x1.items():
         if solver1.Value(var1) == 1:
-            horario2[_c,_d,_p] = _s
-    H1 = dict(horario2)
-    print(len(horario2))
+            horario1[_c,_d,_p] = _s
+    H1 = dict(horario1)
+    print(len(horario1))
     changes = set(H0.items()) - set(H1.items())
     print(len(changes))
+    print(changes)
     return (solver1,)
+
+
+@app.cell
+def _(H0, cp_model, model2, x2):
+    solver2 = cp_model.CpSolver()
+    status2 = solver2.Solve(model2)
+    print(solver2.StatusName(status2), solver2.ObjectiveValue(), solver2.WallTime())
+
+    horario2 = {}
+    for (_c,_s,_d,_p), var2 in x2.items():
+        if solver2.Value(var2) == 1:
+            horario2[_c,_d,_p] = _s
+    H2 = dict(horario2)
+    print(len(horario2))
+    print(len(set(H0.items()) - set(H2.items())))
+    return
 
 
 @app.cell
