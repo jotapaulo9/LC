@@ -7,12 +7,12 @@
   "cells": [
     {
       "id": "Hbol",
-      "code_hash": "456c9de7cbd1f81d6d0d07c10a0a188f",
+      "code_hash": "b8c5785033ff38861de5ab938a18b696",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"tp1\">TP1</h1>\n<h2 id=\"grupo\">Grupo</h2>\n<span class=\"paragraph\">Jo\u00e3o Pontes, A111657</span>\n<span class=\"paragraph\">Jo\u00e3o Paulo, A110393</span>\n<span class=\"paragraph\">Objetivo: Criar um hor\u00e1rio escolar semanal cumpridor de determinadas restri\u00e7\u00f5es (consultar horario_escolar_enunciado.py).</span>\n<hr />\n<span class=\"paragraph\"><strong>(R8)</strong> Para a leitura dos dados .csv:</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"tp11\">TP1.1</h1>\n<h2 id=\"grupo-19\">Grupo 19</h2>\n<span class=\"paragraph\">Jo\u00e3o Pontes, A111657</span>\n<span class=\"paragraph\">Jo\u00e3o Paulo, A110393</span>\n<span class=\"paragraph\">Objetivo: Criar um hor\u00e1rio escolar semanal cumpridor de determinadas restri\u00e7\u00f5es (consultar horario_escolar_enunciado.py).</span>\n<hr />\n<span class=\"paragraph\"><strong>Importa\u00e7\u00e3o de Bibliotecas e Inicializa\u00e7\u00e3o de Dados</strong></span>\n<span class=\"paragraph\">Nesta primeira c\u00e9lula, procedemos \u00e0 importa\u00e7\u00e3o das ferramentas necess\u00e1rias para a resolu\u00e7\u00e3o do problema. Utilizamos o <code>pandas</code> para a leitura e manipula\u00e7\u00e3o eficiente dos ficheiros <code>.csv</code> fornecidos, e a biblioteca <code>ortools.sat.python</code> (especificamente o m\u00f3dulo <code>cp_model</code>), que nos permite modelar o problema de aloca\u00e7\u00e3o de hor\u00e1rios. \nAqui, definimos tamb\u00e9m as estruturas de dados nevr\u00e1lgicas, tais como os dias da semana, os per\u00edodos letivos di\u00e1rios e um dicion\u00e1rio que mapeia cada disciplina \u00e0 sua respetiva carga hor\u00e1ria semanal.</span></span>"
           }
         }
       ],
@@ -33,12 +33,12 @@
     },
     {
       "id": "Xref",
-      "code_hash": "babe5cdb43fba0fd22a894fb14fe9734",
+      "code_hash": "ae2ad0c8dacd98d0107ba136ebd142b8",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\">Declara\u00e7\u00e3o do dicion\u00e1rio das disciplinas que ocupam per\u00edodos/blocos duplos, vari\u00e1veis professor e lista de professores, set para professores indispon\u00edveis, capacidade e tipo de sala.</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>Processamento e Estrutura\u00e7\u00e3o das Restri\u00e7\u00f5es Espec\u00edficas</strong></span>\n<ul>\n<li><code>doubleP</code>: Identifica atrav\u00e9s de um valor booleano quais as disciplinas que exigem a marca\u00e7\u00e3o de blocos de aulas duplos.</li>\n<li><code>teachers</code> e <code>teachersList</code>: Mapeiam a correspond\u00eancia entre cada disciplina e o professor respons\u00e1vel, bem como a lista de todos os docentes \u00fanicos.</li>\n<li><code>unavailable</code>: Cria um conjunto (<code>set</code>) de tuplos contendo as indisponibilidades predefinidas dos professores, cruzando docente, dia e per\u00edodo, de modo a acelerar a verifica\u00e7\u00e3o de conflitos durante a gera\u00e7\u00e3o do hor\u00e1rio.</li>\n<li><code>capacity</code> e <code>typo</code>: Definem a lota\u00e7\u00e3o m\u00e1xima de cada sala e associam as necessidades espec\u00edficas de cada disciplina ao tipo de sala exigido (por exemplo, a necessidade de um laborat\u00f3rio em vez de uma sala normal).</li>\n</ul></span>"
           }
         }
       ],
@@ -98,12 +98,12 @@
     },
     {
       "id": "ROlb",
-      "code_hash": "a83b374ed8e30d069a144b8598d4e0b5",
+      "code_hash": "0e25a2c78d60875b56c0f98596f2c94f",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(O1)</strong> Minimizar o n\u00famero total de \"buracos\" no hor\u00e1rio de cada professor \u2014 um buraco \u00e9 um tempo livre, no meio do dia, entre a primeira e a \u00faltima aula desse professor nesse dia.</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>(O1)</strong> Minimizar o n\u00famero total de \"buracos\" no hor\u00e1rio de cada professor \u2014 um buraco \u00e9 um tempo livre, no meio do dia, entre a primeira e a \u00faltima aula desse professor nesse dia.</span>\n<hr />\n<span class=\"paragraph\"><strong>Fun\u00e7\u00e3o de Otimiza\u00e7\u00e3o: Minimiza\u00e7\u00e3o de \"Buracos\" (<code>manageHoles</code>)</strong></span>\n<span class=\"paragraph\">O intuito \u00e9 garantir a melhor qualidade de hor\u00e1rio poss\u00edvel para os docentes, minimizando os chamados \"buracos\" (tempos livres intercalados entre aulas no meio do mesmo dia). </span>\n<span class=\"paragraph\">Para o conseguir, o algoritmo cria vari\u00e1veis inteiras para identificar dinamicamente o per\u00edodo da primeira (<code>first</code>) e da \u00faltima (<code>last</code>) aula de cada professor em cada dia \u00fatil. \nEm seguida, contabiliza o intervalo de tempo entre estes dois limites, subtraindo o n\u00famero real de aulas dadas nesse dia. O objetivo do modelo (<code>model.Minimize</code>) \u00e9, assim, reduzir a soma total destes tempos mortos em toda a escola.</span></span>"
           }
         }
       ],
@@ -124,12 +124,12 @@
     },
     {
       "id": "TqIu",
-      "code_hash": "57ef6a0c48087f6e304b113508f3700a",
+      "code_hash": "26d8d4bebd3db8a54919698b6fcf88dd",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>(R9)</strong></span>\n<ol>\n<li>Gerar um hor\u00e1rio v\u00e1lido <code>H0</code> a partir de um conjunto de\n   dados inicial (<code>dados/</code>).</li>\n<li>Dada uma pequena altera\u00e7\u00e3o aos recursos \u2014 por exemplo, a\n   que est\u00e1 em <code>dados_v2/</code> (o Prof. Eduardo continua limitado\n   \u00e0s tardes, mas a Prof. Ana passa a estar indispon\u00edvel \u00e0s\n   sextas-feiras nos 2 \u00faltimos tempos) \u2014 gerar um novo hor\u00e1rio\n   v\u00e1lido <code>H1</code> que respeite R1\u2013R8 com os novos dados.</li>\n<li><code>H1</code> deve ser produzido <strong>de forma eficiente</strong> (mais r\u00e1pido\n   do que resolver <code>H1</code> do zero, sem usar <code>H0</code>) e <strong>minimizando\n   o n\u00famero de aulas que mudam de tempo/sala</strong> entre <code>H0</code> e\n   <code>H1</code> \u2014 <code>H1</code> n\u00e3o precisa de ser \u00f3timo em rela\u00e7\u00e3o a O1.</li>\n</ol></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>(R9)</strong></span>\n<ol>\n<li>Gerar um hor\u00e1rio v\u00e1lido <code>H0</code> a partir de um conjunto de\n       dados inicial (<code>dados/</code>).</li>\n<li>Dada uma pequena altera\u00e7\u00e3o aos recursos \u2014 por exemplo, a\n       que est\u00e1 em <code>dados_v2/</code> (o Prof. Eduardo continua limitado\n       \u00e0s tardes, mas a Prof. Ana passa a estar indispon\u00edvel \u00e0s\n       sextas-feiras nos 2 \u00faltimos tempos) \u2014 gerar um novo hor\u00e1rio\n       v\u00e1lido <code>H1</code> que respeite R1\u2013R8 com os novos dados.</li>\n<li><code>H1</code> deve ser produzido <strong>de forma eficiente</strong> (mais r\u00e1pido\n       do que resolver <code>H1</code> do zero, sem usar <code>H0</code>) e <strong>minimizando\n       o n\u00famero de aulas que mudam de tempo/sala</strong> entre <code>H0</code> e\n       <code>H1</code> \u2014 <code>H1</code> n\u00e3o precisa de ser \u00f3timo em rela\u00e7\u00e3o a O1.</li>\n</ol></span>"
           }
         }
       ],
@@ -137,7 +137,7 @@
     },
     {
       "id": "Vxnm",
-      "code_hash": "50112dcf7dcd574bd77c16b913de35f6",
+      "code_hash": "fdd08a5c82a94beb4fb899c130663e80",
       "outputs": [
         {
           "type": "data",
@@ -150,19 +150,19 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "1\nTrue\n17\n15\n",
+          "text": "1\n17\n15\n",
           "mimetype": "text/plain"
         }
       ]
     },
     {
       "id": "Gsbv",
-      "code_hash": "a0ccfefe01cdbd1161844d4c868b2503",
+      "code_hash": "dc8722468aaacd05a5976473f8f2ec9d",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<h2 id=\"metodo-build\">M\u00e9todo .build()</h2>\n<span class=\"paragraph\">Neste m\u00e9todo est\u00e3o contidos os algoritmos de cada restri\u00e7\u00e3o</span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Fun\u00e7\u00e3o Base de Constru\u00e7\u00e3o do Modelo (<code>.build()</code>)</strong></span>\n<div class=\"language-teratermmacro highlight\"><pre><span></span><code><span class=\"nv\">Esta</span><span class=\"w\"> </span><span class=\"nv\">c</span>\u00e9<span class=\"nv\">lula</span><span class=\"w\"> </span><span class=\"nv\">encapsula</span><span class=\"w\"> </span><span class=\"nv\">a</span><span class=\"w\"> </span><span class=\"nv\">l</span>\u00f3<span class=\"nv\">gica</span><span class=\"w\"> </span><span class=\"nv\">principal</span><span class=\"w\"> </span><span class=\"nv\">de</span><span class=\"w\"> </span><span class=\"nv\">cria</span>\u00e7\u00e3<span class=\"nv\">o</span><span class=\"w\"> </span><span class=\"k\">do</span><span class=\"w\"> </span><span class=\"nv\">hor</span>\u00e1<span class=\"nv\">rio</span><span class=\"w\"> </span><span class=\"nv\">na</span><span class=\"w\"> </span><span class=\"nv\">fun</span>\u00e7\u00e3<span class=\"nv\">o</span><span class=\"w\"> </span>`<span class=\"nv\">build</span><span class=\"ss\">(</span><span class=\"nv\">unavailable</span><span class=\"ss\">)</span>`.<span class=\"w\"> </span>\n<span class=\"nv\">Adicionamos</span><span class=\"w\"> </span><span class=\"nv\">rigorosamente</span><span class=\"w\"> </span><span class=\"nv\">todas</span><span class=\"w\"> </span><span class=\"nv\">as</span><span class=\"w\"> </span><span class=\"nv\">restri</span>\u00e7\u00f5<span class=\"nv\">es</span><span class=\"w\"> </span><span class=\"nv\">estruturais</span><span class=\"w\"> </span><span class=\"nv\">imperativas</span><span class=\"w\"> </span><span class=\"nv\">ao</span><span class=\"w\"> </span><span class=\"nv\">modelo</span><span class=\"w\"> </span><span class=\"ss\">(</span><span class=\"nv\">R1</span><span class=\"o\">-</span><span class=\"nv\">R7</span><span class=\"ss\">)</span>:\n</code></pre></div>\n<ol>\n<li>Impedir a sobreposi\u00e7\u00e3o de aulas: cada turma tem, no m\u00e1ximo, uma aula por cada per\u00edodo;</li>\n<li>Garantir o cumprimento exato da carga hor\u00e1ria semanal definida para cada disciplina;</li>\n<li>Assegurar a correta distribui\u00e7\u00e3o das aulas ao longo da semana, impondo tamb\u00e9m que as aulas de per\u00edodo duplo ocorrem obrigatoriamente em tempos consecutivos no mesmo dia;</li>\n<li>Prevenir sobreposi\u00e7\u00f5es para os docentes (n\u00e3o podem lecionar a turmas distintas no mesmo instante) e impor os seus per\u00edodos de indisponibilidade;</li>\n<li>Respeitar a capacidade limite das salas face \u00e0 lota\u00e7\u00e3o necess\u00e1ria e garantir que as disciplinas ocupam apenas os tipos de sala apropriados.</li>\n</ol></span>"
           }
         }
       ],
@@ -182,34 +182,21 @@
       "console": []
     },
     {
+      "id": "Jzwz",
+      "code_hash": "fb55a25a21b54929660ea07785e5c258",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>Instancia\u00e7\u00e3o de (H0)</strong></span>\n<span class=\"paragraph\">Nesta etapa, invocamos a fun\u00e7\u00e3o <code>build</code> utilizando os dados de indisponibilidade originais. A este modelo aplicamos a fun\u00e7\u00e3o de otimiza\u00e7\u00e3o <code>manageHoles</code>, preparando o solver para gerar a primeira solu\u00e7\u00e3o \u00f3tima para o hor\u00e1rio escolar, partindo completamente do zero.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "Xzjq",
       "code_hash": "1940c54b3127a1e5fe427e474341c693",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "piza",
-      "code_hash": "c20850e8bd36e7b7f6984db047506d5b",
-      "outputs": [
-        {
-          "type": "data",
-          "data": {
-            "text/plain": ""
-          }
-        }
-      ],
-      "console": []
-    },
-    {
-      "id": "SmbL",
-      "code_hash": "c8b92d56c4b20474919897f9b27c6132",
       "outputs": [
         {
           "type": "data",
@@ -241,6 +228,32 @@
       ]
     },
     {
+      "id": "CdNL",
+      "code_hash": "20c44b0a8d212d25148484028bca6735",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>Instancia\u00e7\u00e3o de (H1)</strong> - condicionado por dados_v2</span>\n<span class=\"paragraph\">Aqui constru\u00edmos um novo modelo que j\u00e1 incorpora as indisponibilidades atualizadas (vers\u00e3o 2). Contudo, em vez de procurarmos do zero um novo hor\u00e1rio \u00f3timo que minimize os buracos, o nosso objetivo primordial (<code>Maximize(sum(kept))</code>) passa a ser <strong>maximizar o n\u00famero de aulas que se mant\u00eam estritamente no mesmo dia e per\u00edodo</strong> face \u00e0 solu\u00e7\u00e3o inicial <code>H0</code>. \nEste processo assegura uma transi\u00e7\u00e3o suave, permitindo ajustar o hor\u00e1rio de forma muito mais eficiente em termos computacionais e provocando a m\u00ednima disrup\u00e7\u00e3o na rotina j\u00e1 estabelecida de alunos e professores.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "piza",
+      "code_hash": "bc923dabb37efda982f2e639e8744426",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "UxoQ",
       "code_hash": "65bcf3c13abc0eb5a1fc7ea445ef80a3",
       "outputs": [
@@ -255,10 +268,36 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "OPTIMAL 33.0 0.010593\n34\n1\n{(('7\u00baB', 'Sex', 4), 'Matem\u00e1tica')}\n",
+          "text": "OPTIMAL 33.0 0.012148\n34\n1\n{(('7\u00baB', 'Sex', 4), 'Matem\u00e1tica')}\n",
           "mimetype": "text/plain"
         }
       ]
+    },
+    {
+      "id": "jyyz",
+      "code_hash": "6dcb267806a16cb019c27b2cf87e24a3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>Instancia\u00e7\u00e3o de (H2)</strong></span>\n<span class=\"paragraph\">Criamos um terceiro modelo, igualmente suportado nos novos dados de disponibilidade, mas regressando \u00e0 fun\u00e7\u00e3o objetivo original (<code>manageHoles</code>). O prop\u00f3sito deste passo \u00e9 puramente comparativo: permite-nos avaliar e contrastar o tempo de execu\u00e7\u00e3o e o volume de altera\u00e7\u00f5es estruturais resultantes de um reajuste minimalista (<code>H1</code>), por oposi\u00e7\u00e3o a um c\u00e1lculo de um novo hor\u00e1rio feito inteiramente de raiz.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "SmbL",
+      "code_hash": "c8b92d56c4b20474919897f9b27c6132",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
     },
     {
       "id": "fDFf",
@@ -275,19 +314,157 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "OPTIMAL 0.0 0.027944\n34\n30\n",
+          "text": "OPTIMAL 0.0 0.024338000000000002\n34\n30\n",
           "mimetype": "text/plain"
         }
       ]
     },
     {
-      "id": "DnEU",
-      "code_hash": "135e52ab801a5dab7a77cbbe302e5fe0",
+      "id": "kFtI",
+      "code_hash": "aeb3edaa7e0a5ca7a27f53c8afa44348",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7oa\">7\u00baA</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n    </tr>\n  </tbody>\n</table><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7ob\">7\u00baB</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td></td>\n    </tr>\n  </tbody>\n</table></div>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<span class=\"paragraph\"><strong>Instancia\u00e7\u00e3o de (H3)</strong></span>\n<span class=\"paragraph\">Criamos um ultimo modelo, com novas indsiponibilidades, mas regressando \u00e0 fun\u00e7\u00e3o objetivo original (<code>manageHoles</code>). A cria\u00e7\u00e3o deste modelo permito-nos testar a versatilidade do c\u00f3digo.</span>\n<span class=\"paragraph\">As novas indisponibilidades s\u00e3o do professor Bruno.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "tSTO",
+      "code_hash": "26a75835ddd8f7afbe5600ade1ace355",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ovXg",
+      "code_hash": "9b5c09c84a88e392ceb3bc25039e6ec4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "17\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "dwjo",
+      "code_hash": "370f0df7bff443c59ba79dc9eebe60d4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "OPTIMAL 0.0 0.020210000000000002\n34\n30\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "BXvz",
+      "code_hash": "f3fa33d63e717b8f9b3093b407d91ea2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "3\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "CVxK",
+      "code_hash": "ef015f35b4336e6cd6600df0b52e2480",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><strong>M\u00e9todo <code>.show()</code></strong></span>\n<span class=\"paragraph\">Na c\u00e9lula final, focamo-nos na apresenta\u00e7\u00e3o gr\u00e1fica dos resultados. Definimos a fun\u00e7\u00e3o <code>show</code>, cujo prop\u00f3sito \u00e9 percorrer as vari\u00e1veis de decis\u00e3o validadas pelo algoritmo e transformar esses dados em tabelas estruturadas (atrav\u00e9s de <code>pd.DataFrame</code>). \nEstes dados s\u00e3o seguidamente convertidos para formato HTML e integrados na interface da plataforma Marimo recorrendo \u00e0 fun\u00e7\u00e3o <code>mo.Html</code>. Este procedimento permite-nos apresentar o produto final \u2014 o hor\u00e1rio detalhado de cada turma \u2014 de uma forma visualmente apelativa e de f\u00e1cil leitura.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "DnEU",
+      "code_hash": "ca40c8c03fdf90345d194ec57f116561",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "QhMR",
+      "code_hash": "39bb72f5aa354a3ffc1d2a216002f4de",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7oa\">7\u00baA</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n    </tr>\n  </tbody>\n</table><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7ob\">7\u00baB</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td></td>\n    </tr>\n  </tbody>\n</table></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "cvqn",
+      "code_hash": "130ef88c58ce7b14dc2850ee5f57bf49",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7oa\">7\u00baA</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n    </tr>\n  </tbody>\n</table><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7ob\">7\u00baB</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td></td>\n    </tr>\n  </tbody>\n</table></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "HPMn",
+      "code_hash": "cee838f55aebf8285f6fa98b00a61b5a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7oa\">7\u00baA</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td></td>\n      <td></td>\n    </tr>\n  </tbody>\n</table><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7ob\">7\u00baB</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n  </tbody>\n</table></div>"
           }
         }
       ],
