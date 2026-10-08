@@ -268,7 +268,7 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "OPTIMAL 33.0 0.012533\n34\n1\n{(('7\u00baB', 'Sex', 4), 'Matem\u00e1tica')}\n",
+          "text": "OPTIMAL 33.0 0.009708000000000001\n34\n1\n{(('7\u00baB', 'Sex', 4), 'Matem\u00e1tica')}\n",
           "mimetype": "text/plain"
         }
       ]
@@ -314,7 +314,7 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "OPTIMAL 0.0 0.024668000000000002\n34\n30\n",
+          "text": "OPTIMAL 0.0 0.022597000000000003\n34\n30\n",
           "mimetype": "text/plain"
         }
       ]
@@ -380,7 +380,7 @@
         {
           "type": "stream",
           "name": "stdout",
-          "text": "OPTIMAL 0.0 0.025722000000000002\n34\n30\n",
+          "text": "OPTIMAL 0.0 0.023644000000000002\n34\n30\n",
           "mimetype": "text/plain"
         }
       ]
@@ -458,6 +458,19 @@
       "console": []
     },
     {
+      "id": "VvKE",
+      "code_hash": "6b0723e02626d2b2b6bf1a91c5c8f821",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7oa\">7\u00baA</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n    </tr>\n  </tbody>\n</table><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7ob\">7\u00baB</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n    </tr>\n  </tbody>\n</table></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "HPMn",
       "code_hash": "cee838f55aebf8285f6fa98b00a61b5a",
       "outputs": [
@@ -465,6 +478,19 @@
           "type": "data",
           "data": {
             "text/html": "<div style='display: flex;flex: 1;flex-direction: column;justify-content: flex-start;align-items: normal;flex-wrap: nowrap;gap: 0.5rem'><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7oa\">7\u00baA</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n      <td></td>\n      <td></td>\n      <td></td>\n    </tr>\n  </tbody>\n</table><span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"7ob\">7\u00baB</h3></span><table border=\"1\" class=\"dataframe\">\n  <thead>\n    <tr style=\"text-align: right;\">\n      <th></th>\n      <th>Seg</th>\n      <th>Ter</th>\n      <th>Qua</th>\n      <th>Qui</th>\n      <th>Sex</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <th>1</th>\n      <td></td>\n      <td></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n    </tr>\n    <tr>\n      <th>2</th>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n    </tr>\n    <tr>\n      <th>3</th>\n      <td></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Ingl\u00eas (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Portugu\u00eas (Prof. Bruno)<br><i>Sala Normal</i></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n    </tr>\n    <tr>\n      <th>4</th>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td>Hist\u00f3ria (Prof. Diana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td></td>\n      <td>Educa\u00e7\u00e3o F\u00edsica (Prof. Eduardo)<br><i>Gin\u00e1sio</i></td>\n    </tr>\n    <tr>\n      <th>5</th>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td></td>\n      <td>Ci\u00eancias (Prof. Carla)<br><i>Laborat\u00f3rio</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n      <td>Matem\u00e1tica (Prof. Ana)<br><i>Sala Normal</i></td>\n    </tr>\n  </tbody>\n</table></div>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RBru",
+      "code_hash": "6d5c76051a2473062739f76fdf0a6d98",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><hr />\n<h2 id=\"utilizacao-de-llms\">Utiliza\u00e7\u00e3o de LLM's</h2>\n<div class=\"language-cbmbas highlight\"><pre><span></span><code><span class=\"mf\">1.</span><span class=\"w\"> </span><span class=\"n\">Esclarecimento</span><span class=\"w\"> </span><span class=\"n\">de</span><span class=\"w\"> </span><span class=\"n\">d\u00favidas</span>\n\n<span class=\"mf\">2.</span><span class=\"w\"> </span><span class=\"n\">Sugerir</span><span class=\"w\"> </span><span class=\"n\">a</span><span class=\"w\"> </span><span class=\"n\">melhor</span><span class=\"w\"> </span><span class=\"n\">aproxima\u00e7\u00e3o</span><span class=\"w\"> </span><span class=\"n\">a</span><span class=\"w\"> </span><span class=\"n\">seguir</span><span class=\"w\"> </span><span class=\"n\">face</span><span class=\"w\"> </span><span class=\"n\">ao</span><span class=\"w\"> </span><span class=\"n\">problema</span><span class=\"w\"> </span><span class=\"n\">em</span><span class=\"w\"> </span><span class=\"n\">quest\u00e3o</span><span class=\"p\">,</span><span class=\"w\"> </span><span class=\"n\">principalmente</span><span class=\"w\"> </span><span class=\"n\">face</span><span class=\"w\"> </span><span class=\"n\">ao</span><span class=\"w\"> </span><span class=\"n\">m\u00e9todo</span><span class=\"w\"> </span><span class=\"n\">incremental</span><span class=\"mf\">.</span>\n\n<span class=\"mf\">3.</span><span class=\"w\"> </span><span class=\"n\">M\u00e9todo</span><span class=\"w\"> </span><span class=\"mf\">.</span><span class=\"n\">show</span><span class=\"p\">()</span>\n</code></pre></div></span>"
           }
         }
       ],

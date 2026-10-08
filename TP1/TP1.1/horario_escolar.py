@@ -539,8 +539,27 @@ def _(days, period, show, solver1, teachers, typo, x):
 
 
 @app.cell
+def _(days, period, show, solver2, teachers, typo, x2):
+    show(solver2, x2, days, period, teachers, typo)
+    return
+
+
+@app.cell
 def _(days, period, show, solver3, teachers, typo, x3):
     show(solver3, x3, days, period, teachers, typo) #Horário com dados_v3
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ---
+
+    ## Utilização de LLM's
+        1. Esclarecimento de dúvidas
+        2. Sugerir a melhor aproximação a seguir face ao problema em questão, principalmente face ao método incremental.
+        3. Método .show()
+    """)
     return
 
 
